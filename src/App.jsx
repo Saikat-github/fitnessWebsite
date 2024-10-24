@@ -11,7 +11,7 @@ import dbService from './appwrite/data'
 const App = () => {
   const userData = useSelector((state) => state.auth.userData);
   const dispatch = useDispatch();
-  const [authLoading, setAuthLoading] = useState(true);
+  const [authLoading, setAuthLoading] = useState(false);
   const [dataLoading, setDataLoading] = useState(false);
 
 
@@ -19,8 +19,10 @@ const App = () => {
     if (!userData) return;  // Return early if no userId
     setDataLoading(true);
 
+    console.log(userData)
     dbService.getPost(userData.$id)
       .then((data) => {
+        console.log(data)
         dispatch(addDetails(data));
       })
       .catch((error) => {

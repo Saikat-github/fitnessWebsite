@@ -59,23 +59,23 @@ const Login = () => {
 
   // google login logic
 
-  // const googleLogin = useCallback(async () => {
-  //   console.log("google login was clicked")
-  //   setLoading(true);
-  //   try {
-  //     const session = await authService.googleAuth();
-  //     if (session) {
-  //       authService.getCurrentUser().then((userData) => {
-  //         if (userData) dispatch(storeLogin(userData));
-  //         navigate("/");
-  //       });
-  //     }
-  //   } catch (error) {
-  //     setError(error.message);
-  //   } finally {
-  //     setLoading(false);
-  //   }
-  //   }, [dispatch])
+  const googleLogin = useCallback(async () => {
+    console.log("google login was clicked")
+    setLoading(true);
+    try {
+      const session = await authService.googleAuth();
+      if (session) {
+        authService.getCurrentUser().then((userData) => {
+          if (userData) dispatch(storeLogin(userData));
+          navigate("/");
+        });
+      }
+    } catch (error) {
+      setError(error.message);
+    } finally {
+      setLoading(false);
+    }
+    }, [dispatch])
 
 
   return (
@@ -143,7 +143,7 @@ const Login = () => {
 
         <div className="oauth my-4 flex flex-col gap-4 items-center">
           {/* <button className='hover:ring-1 hover:ring-blue-700  w-72 py-3 text-gray-600 flex gap-2 justify-center items-center shadow-lg'><img className='w-8' src={FacebookLogo} alt="" />Continue With Facebook</button> */}
-          <button onClick={() => alert("Google Log In is coming soon")} className='hover:ring-1 hover:ring-blue-700  w-72 py-3 text-gray-600 flex gap-2 justify-center items-center shadow-xl'><img className='w-8' src={GoogleLogo} alt="" />Continue With Google</button>
+          <button onClick={googleLogin} className='hover:ring-1 hover:ring-blue-700  w-72 py-3 text-gray-600 flex gap-2 justify-center items-center shadow-xl'><img className='w-8' src={GoogleLogo} alt="" />Continue With Google</button>
         </div>
 
       </div>
