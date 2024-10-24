@@ -45,6 +45,7 @@ const Login = () => {
 
   //forget password logic
   const forgetPassword = useCallback(() => {
+    console.log("rootUrl -", rootUrl, "resetUrl -", resetUrl);
     const email = watch("email");
     if (!email) {
       alert("Please enter your email to reset password");
@@ -62,7 +63,6 @@ const Login = () => {
 
   const googleLogin = useCallback(async () => {
     console.log("google login was clicked")
-    console.log("rootUr -l", rootUrl, "resetUrl -", resetUrl);
     setLoading(true);
     try {
       const session = await authService.googleAuth(rootUrl);
