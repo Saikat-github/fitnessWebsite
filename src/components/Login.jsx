@@ -15,7 +15,8 @@ import { useMemo } from 'react'
 const Login = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const rootUrl = useMemo(() => `${window.location.origin}/resetPassword`, []);
+  const rootUrl = window.location.origin;
+  const resetUrl = useMemo(() => `${rootUrl}/resetPassword`, []);
 
   const { register, handleSubmit, watch, formState: { isSubmitting } } = useForm();
   const navigate = useNavigate();
@@ -50,10 +51,10 @@ const Login = () => {
       return;
     }
     setLoading(true);
-    authService.sendPasswordRecoveryEmail(email, rootUrl)
+    authService.sendPasswordRecoveryEmail(email, resetUrl)
       .then(() => alert("Reset email sent to your email"))
       .finally(() => setLoading(false));
-  }, [watch, rootUrl]);
+  }, [watch, resetUrl]);
 
 
 
@@ -61,9 +62,10 @@ const Login = () => {
 
   const googleLogin = useCallback(async () => {
     console.log("google login was clicked")
+    console.log("rootUr -l", rootUrl, "resetUrl -", resetUrl);
     setLoading(true);
     try {
-      const session = await authService.googleAuth();
+      const session = await authService.googleAuth(rootUrl);
       if (session) {
         authService.getCurrentUser().then((userData) => {
           if (userData) dispatch(storeLogin(userData));

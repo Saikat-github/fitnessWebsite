@@ -69,9 +69,9 @@ export class AuthService {
         }
     }
 
-    async googleAuth () {
+    async googleAuth (rootUrl) {
         try {
-            return await this.account.createOAuth2Session('google', "http://localhost:5173/", "http://localhost:5173/fail");
+            return await this.account.createOAuth2Session('google', rootUrl, rootUrl);
         } catch (error) {
             throw error;
         }
