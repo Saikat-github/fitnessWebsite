@@ -60,7 +60,7 @@ const App = () => {
       </main>
       <Footer />
     </div>
-  ) : (<div className='w-screen h-screen flex justify-center items-center bg-gray-100'><div className="h-20 w-20 border-8 border-t-blue-500 rounded-full animate-spin "></div></div>)
+  ) : (<div className='w-screen h-screen flex justify-center items-center bg-gray-100'><div className="h-20 w-20 border-8 border-t-blue-700 rounded-full animate-spin "></div></div>)
 }
 
 export default App
