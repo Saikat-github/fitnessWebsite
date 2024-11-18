@@ -7,6 +7,12 @@ const PricingPage = () => {
 
   const pricingPlans = [
     {
+      title: "Guaranteed: Lose 5-10kg in 6 weeks",
+      price: "₹2,999",
+      features: ["Money-back guarantee", "Customized diet & workout", "Progress monitoring", "6-week intensive coaching"],
+      cta: "Start Your Journey",
+    },
+    {
       title: "Muscle Building",
       price: "₹ 1,499/month",
       features: ["Personalized workout plans", "Diet consultation", "Weekly check-ins", "24/7 Support"],
@@ -23,13 +29,7 @@ const PricingPage = () => {
       price: "₹ 1,999/month",
       features: ["Combined muscle gain & fat loss", "Diet and training plans", "Weekly adjustments", "Online coaching"],
       cta: "Transform Now",
-    },
-    {
-      title: "Guaranteed: Lose 5-10kg in 6 weeks",
-      price: "₹2,999",
-      features: ["Money-back guarantee", "Customized diet & workout", "Progress monitoring", "6-week intensive coaching"],
-      cta: "Start Your Journey",
-    },
+    }
 
   ];
 

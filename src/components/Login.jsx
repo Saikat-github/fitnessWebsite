@@ -18,7 +18,7 @@ const Login = () => {
   const rootUrl = window.location.origin;
   const resetUrl = useMemo(() => `${rootUrl}/resetPassword`, []);
 
-  const { register, handleSubmit, watch, formState: { isSubmitting } } = useForm();
+  const { register, handleSubmit, watch, formState: { isSubmitting }, reset } = useForm();
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -39,6 +39,7 @@ const Login = () => {
       setError(error.message);
     } finally {
       setLoading(false);
+      reset();
     }
   }, [dispatch, navigate]);
 

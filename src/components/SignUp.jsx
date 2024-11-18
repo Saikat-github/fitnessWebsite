@@ -14,7 +14,7 @@ const SignUp = () => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
 
-    const { register, handleSubmit, formState: { isSubmitting } } = useForm();
+    const { register, handleSubmit, formState: { isSubmitting }, reset } = useForm();
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
@@ -30,8 +30,11 @@ const SignUp = () => {
             }
         } catch (error) {
             setError(error.message);
+        } finally {
+            setLoading(false);
+            reset()
         }
-        setLoading(false);
+        
     }
 
     

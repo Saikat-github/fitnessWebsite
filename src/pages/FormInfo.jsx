@@ -32,54 +32,59 @@ const FormInfo = () => {
     const questions = [
         {
             type: "button",
-            question: "What is your primary fitness goal?",
+            question: <p><span className='text-red-600'>*</span>What is your primary fitness goal?</p>,
             options: ["Lose Fat", 'Build Muscle', "Body Recomposition (Build Muscle & Lose Fat)", "Health & Longevity"],
             name: "applicantGoal"
         },
         {
             type: "button",
-            question: "How old are you? My coaching is 18+",
+            question: <p><span className='text-red-600'>*</span>How old are you? My coaching is 18+</p>,
             options: ["18-25", "26-35", "36-45", "46+"],
             name: "applicantAge"
         },
         {
             type: "button",
-            question: "What is your gender?",
+            question: <p><span className='text-red-600'>*</span>What is your gender?</p>,
             options: ["Male", "Female", "Other", "Prefer not to answer"],
             name: "applicantGender"
         },
         {
             type: "button",
-            question: "This application is for paid 1:1 coaching (including personalized nutrition, workouts, weekly chckins & whatsApp chat with me) do you want to continue?",
+            question: <p><span className='text-red-600'>*</span>This application is for paid 1:1 coaching (including personalized nutrition, workouts, weekly chckins & whatsApp chat with me) do you want to continue?</p>,
             options: ["Yes", "No cancel my application"],
             name: "agreedToContinue"
         },
         {
             type: "button",
-            question: <p>Please Choose Your Plan (See pricing details on<span onClick={() => navigate("/pricing")} className='text-blue-700 cursor-pointer'> Pricing Page</span>)</p>,
-            options: ["Muscle Building", "Weight Loss", "Body Recomposition", "Guaranteed: Lose 5-10kg in 6 weeks"],
+            question: <p><span className='text-red-600'>*</span>Please Choose Your Plan (See pricing details on<span onClick={() => navigate("/pricing")} className='text-blue-700 cursor-pointer'> Pricing Page</span>)</p>,
+            options: ["Guaranteed: Lose 5-10kg in 6 weeks [₹2999/mo]","Muscle Building [₹1499/mo]", "Weight Loss [₹1499/mo]", "Body Recomposition [₹1999/mo]"],
             name: "planChoosen"
         },
         {
             type: 'input',
-            question: "Your Name",
+            question: <p><span className='text-red-600'>*</span>Your Name</p>,
             name: "applicantName"
         },
         {
             type: "input",
-            question: "What is your phone number?",
+            question: <p><span className='text-red-600'>*</span>What is your phone number?</p>,
             name: "phoneNo"
         },
+        // {
+        //     type: "input",
+        //     question: "What is your e-mail address?",
+        //     name: "email"
+        // },
         {
             type: "input",
-            question: "What is your e-mail address?",
-            name: "email"
+            question: <p><span className='text-red-600'>*</span>Name of your gym <br /><span className='text-xs'>(If you're not a member of any gym write N/A)</span></p>,
+            name: "gymName",
         },
-        {
-            type: "input",
-            question: "What is your instagram handle?",
-            name: "instaID"
-        }
+        // {
+        //     type: "input",
+        //     question: "What is your instagram handle?",
+        //     name: "instaID"
+        // }
     ];
 
 
@@ -156,7 +161,7 @@ const FormInfo = () => {
                             <button
                                 type="button"
                                 key={i}
-                                className={`px-10 py-4 border border-black rounded-full transition sm:w-80 w-64 text-sm ${watch(question.name) === option ? "bg-red-700 text-white" : "hover:bg-red-700 hover:text-white"}`}
+                                className={`px-10 py-4 border border-black rounded-full sm:w-80 w-64 text-sm transition-all duration-500 ${watch(question.name) === option ? "bg-red-700 text-white" : "hover:bg-red-700 hover:text-white"}`}
                                 onClick={() => onBtnClicked(option, question)}
                             >
                                 {option}
@@ -174,7 +179,7 @@ const FormInfo = () => {
     return !error ? (
         <div className='lg:px-32 px-4 my-10'>
             <h3 className='text-center text-xs lg:text-sm font-semibold text-red-600 my-4'>
-                *Please fill the details below correctly, so we can contact you and start helping you achieve your Goal fast.
+                Please fill in the details below correctly, so we can contact you and start helping you achieve your Goal fast.
             </h3>
 
             <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col items-center gap-6 my-10'>

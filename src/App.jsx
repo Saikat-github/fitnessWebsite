@@ -19,10 +19,8 @@ const App = () => {
     if (!userData) return;  // Return early if no userId
     setDataLoading(true);
 
-    console.log(userData)
     dbService.getPost(userData.$id)
       .then((data) => {
-        console.log(data)
         dispatch(addDetails(data));
       })
       .catch((error) => {
