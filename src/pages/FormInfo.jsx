@@ -99,7 +99,7 @@ const FormInfo = () => {
             const formData = await dbService.createPost({ ...data, userId: userData.$id });
             if (formData) {
                 alert("Form submitted succesfully");
-                dispatch(addDetails(formData))
+                dispatch(addDetails({...formData, email: userData.email}))
                 navigate("/account")
             }
         } catch (error) {
@@ -210,7 +210,7 @@ const FormInfo = () => {
                 </div>
             </form>
         </div>
-    ) : (<div className='h-screen w-screen flex justify-center items-center text-4xl text-red-700'>{error}</div>)
+    ) : (<div className='h-screen text-center my-20 text-3xl text-red-600 font-semibold'>{error}</div>)
 }
 
 export default FormInfo

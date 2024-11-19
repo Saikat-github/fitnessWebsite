@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import authService from '../appwrite/auth';
 import dbService from '../appwrite/data';
 import { Link, useNavigate } from 'react-router-dom';
 import Button from './Button';
 import { useDispatch, useSelector } from 'react-redux';
-import { addDetails, removeDetails } from '../store/authSlice';
 import { useCallback } from 'react';
+import { removeDetails } from '../store/authSlice';
 
 const UserInfo = ({ userId }) => {
   const userDetails = useSelector((state) => state.auth.userDetails);
@@ -66,7 +65,7 @@ const UserInfo = ({ userId }) => {
           <p><strong className="text-gray-700">Agreed to Continue:</strong> {userDetails.agreedToContinue}</p>
         </div>
       </div>
-      <Button disabled={loading} onClick={() => deleteHandler(userId)} className='bg-blue-600 text-white hover:bg-blue-700 rounded-lg'>Delete Your Details</Button>
+      <Button disabled={loading} onClick={() => deleteHandler(userId)} className='bg-red-600 text-white hover:bg-red-700 rounded-lg'>Delete Your Details</Button>
     </div>
   ) : (<div className='font-semibold text-2xl text-center mt-6'>You haven't submitted your details yet. Please submit Your details <Link className='text-blue-600' to="/input">Here</Link> </div>)
 }

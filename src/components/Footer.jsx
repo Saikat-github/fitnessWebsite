@@ -15,7 +15,9 @@ const Footer = () => {
         </div>
         <h3 className='text-sm'>TAKE YOUR FIRST STEP TODAY</h3>
         <h1 className='font-semibold'>START YOUR TRANSFORMATION</h1>
-        <Button onClick={() => navigate("/input")} className='bg-[#0f0671] py-4 hover:bg-white border hover:text-[#0f0671] font-semibold border-[#0f0671] transition text-white'>JOIN NOW</Button>
+        <div className='flex gap-2 flex-col sm:flex-row'>
+          <Button className='text-white bg-[#0f0671] py-4 hover:bg-white border hover:text-[#0f0671] font-semibold border-[#0f0671]' onClick={() => navigate("/input")} >JOIN NOW</Button>
+        </div>
       </div>
 
       <div className="footer-second py-10 flex gap-20 justify-around md:flex-row flex-col">
@@ -33,9 +35,9 @@ const Footer = () => {
             <h1 className='font-semibold'>Follow Me</h1>
           </div>
           <div className='flex gap-12'>
-            <a href=""><img src={FacebookLogo} alt="" className='w-6' /></a>
-            <a href="https://x.com/Saikaatsaha"><img src={TwitterLogo} alt="" className='w-6' /></a>
-            <a href="https://www.instagram.com/saikaatsaha/"><img src={Instagram} alt="" className='w-6' /></a>
+            <a href=""><img src={FacebookLogo} alt="" className='w-6 hover:scale-105 transition-all duration-300' /></a>
+            <a href="https://x.com/Saikaatsaha"><img src={TwitterLogo} alt="" className='w-6 hover:scale-105 transition-all duration-300' /></a>
+            <a href="https://www.instagram.com/saikaatsaha/"><img src={Instagram} alt="" className='w-6 hover:scale-105 transition-all duration-300' /></a>
           </div>
         </div>
       </div>

@@ -12,6 +12,7 @@ import { Provider } from 'react-redux'
 import store from './store/store.js'
 import Account from './pages/Account.jsx'
 import ResetPassword from './components/ResetPassword.jsx'
+import FreeSession from './pages/FreeSession.jsx'
 
 
 const router = createBrowserRouter([
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
       {
         path: "/input",
         element: <FormInfo />
+      },
+      {
+        path: "/input-freesession",
+        element: <FreeSession />
       },
       {
         path: "/account",
