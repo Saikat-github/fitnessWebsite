@@ -113,7 +113,7 @@ const FreeSession = () => {
               {...register("message")}
               rows="4"
               className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2`}
-              placeholder="Enter your message"
+              placeholder="Enter your dates"
             />
 
           </div>
