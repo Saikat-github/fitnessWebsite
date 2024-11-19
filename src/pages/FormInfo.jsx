@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useId, useState } from 'react'
 import { useForm } from 'react-hook-form';
 import arrowLeft from '../assets/arrow-left.svg'
 import arrowRight from '../assets/arrow-right.svg'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import dbService from '../appwrite/data';
 import { addDetails } from '../store/authSlice';
@@ -27,7 +27,9 @@ const FormInfo = () => {
         }
     }, [])
 
-
+    const handleRedirect = () => {
+        window.open('/pricing', '_blank');
+      };
 
     const questions = [
         {
@@ -56,7 +58,7 @@ const FormInfo = () => {
         },
         {
             type: "button",
-            question: <p><span className='text-red-600'>*</span>Please Choose Your Plan (See pricing details on<span onClick={() => navigate("/pricing")} className='text-blue-700 cursor-pointer'> Pricing Page</span>)</p>,
+            question: <p><span className='text-red-600'>*</span>Please Choose Your Plan (See pricing details on <Link className='text-blue-700' to="#" onClick={handleRedirect}>Pricing Page</Link> )</p>,
             options: ["Guaranteed: Lose 5-10kg in 6 weeks [₹2999/mo]","Muscle Building [₹1499/mo]", "Weight Loss [₹1499/mo]", "Body Recomposition [₹1999/mo]"],
             name: "planChoosen"
         },
