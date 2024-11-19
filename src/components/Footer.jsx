@@ -26,8 +26,8 @@ const Footer = () => {
             <hr className='border-0 w-1 h-10 bg-[#0f0671]' />
             <h1 className='font-semibold'>Contact Us</h1>
           </div>
-          <p className='text-xs sm:text-sm'>Call : +91 9999999999</p>
-          <p className='text-xs sm:text-sm'>sahasaikat782@gmail.com</p>
+          <p className='text-xs sm:text-sm'>Call : +91 9635473546</p>
+          <p className='text-xs sm:text-sm'>saikatservices@gmail.com</p>
         </div>
         <div className="footer-social space-y-4">
           <div className='flex gap-2'>
