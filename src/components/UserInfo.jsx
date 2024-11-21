@@ -1,51 +1,51 @@
-import React, { useEffect, useState } from 'react'
-import dbService from '../appwrite/data';
-import { Link, useNavigate } from 'react-router-dom';
-import Button from './Button';
-import { useDispatch, useSelector } from 'react-redux';
-import { useCallback } from 'react';
-import { removeDetails } from '../store/authSlice';
+import React, { useEffect, useState, useCallback } from "react";
+import dbService from "../appwrite/data";
+import { Link, useNavigate } from "react-router-dom";
+import Button from "./Button";
+import { useDispatch, useSelector } from "react-redux";
+import { removeDetails } from "../store/authSlice";
+import ConfirmationModal from "./ConfirmationModal"; // Import the modal
 
 const UserInfo = ({ userId }) => {
   const userDetails = useSelector((state) => state.auth.userDetails);
   const [loading, setLoading] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false); // Track modal state
+  const [selectedUserId, setSelectedUserId] = useState(null); // Track ID to delete
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   if (!userId) return;  // Return early if no userId
-  //   setLoading(true);
-    
-  //   dbService.getPost(userId)
-  //     .then((data) => {
-  //       dispatch(addDetails(data));
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //       dispatch(removeDetails())
-  //       setError(error.message);
-  //     })
-  //     .finally(() => {
-  //       setLoading(false);
-  //     });
-  // }, [userId]);
+  // Open the modal when delete button is clicked
+  const openModal = (id) => {
+    setSelectedUserId(id);
+    setIsModalOpen(true);
+  };
 
-  const deleteHandler = useCallback(async (id) => {
+  // Close the modal
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedUserId(null);
+  };
+
+  // Confirm delete action
+  const confirmDelete = useCallback(async () => {
     setLoading(true);
-    const success = await dbService.deletePost(id);
-    
+    const success = await dbService.deletePost(selectedUserId);
+
     if (success) {
       dispatch(removeDetails());
-      alert('Your details has been deleted successfully');
-      navigate('/');
+      alert("Your details have been deleted successfully");
+      navigate("/");
     }
-    
+
     setLoading(false);
-  }, []);
+    closeModal(); // Close modal after deletion
+  }, [selectedUserId, dispatch, navigate]);
 
   if (loading) return <div className="text-center text-lg font-semibold">Loading...</div>;
-  // if (error) return <div className="text-red-500 text-center">{error}</div>;
 
+
+
+  
   return userDetails ? (
     <div className="flex flex-col gap-6 pt-2 items-center min-h-screen bg-gray-100">
       <div className="bg-white shadow-lg rounded-lg px-8 py-2 w-full max-w-md">
@@ -65,9 +65,28 @@ const UserInfo = ({ userId }) => {
           <p><strong className="text-gray-700">Agreed to Continue:</strong> {userDetails.agreedToContinue}</p>
         </div>
       </div>
-      <Button disabled={loading} onClick={() => deleteHandler(userId)} className='bg-red-600 text-white hover:bg-red-700 rounded-lg'>Delete Your Details</Button>
-    </div>
-  ) : (<div className='font-semibold text-2xl text-center mt-6'>You haven't submitted your details yet. Please submit Your details <Link className='text-blue-600' to="/input">Here</Link> </div>)
-}
+      <Button
+        disabled={loading}
+        onClick={() => openModal(userId)} // Trigger modal
+        className="bg-red-600 text-white hover:bg-red-700 rounded-lg"
+      >
+        Delete Your Details
+      </Button>
 
-export default UserInfo
+      {/* Modal for confirmation */}
+      <ConfirmationModal
+        isOpen={isModalOpen}
+        message="Are you sure you want to delete your details?"
+        onConfirm={confirmDelete} // Handle confirm action
+        onCancel={closeModal} // Handle cancel action
+      />
+    </div>
+  ) : (
+    <div className="font-semibold text-2xl text-center mt-6">
+      You haven't submitted your details yet. Please submit your details{" "}
+      <Link className="text-blue-600" to="/input">Here</Link>
+    </div>
+  );
+};
+
+export default UserInfo;
