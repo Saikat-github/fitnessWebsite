@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import authService from './appwrite/auth'
 import { login, logout, addDetails, removeDetails } from './store/authSlice'
 import dbService from './appwrite/data'
+import { SpeedInsights } from "@vercel/speed-insights/react"
 
 
 
@@ -53,12 +54,14 @@ const App = () => {
 
   return !authLoading ? (
     <div className='font-Montserrat'>
+      
       <Navbar />
       <main className='min-h-screen'>
         <ScrollToTop />
         <Outlet />
       </main>
       <Footer />
+      <SpeedInsights />
     </div>
   ) : (<div className='w-screen h-screen flex justify-center items-center bg-gray-100'><div className="h-20 w-20 border-8 border-t-blue-700 rounded-full animate-spin "></div></div>)
 }
