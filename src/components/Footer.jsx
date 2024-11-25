@@ -24,7 +24,7 @@ const Footer = () => {
       <div className="footer-second py-10 flex gap-20 justify-around md:flex-row flex-col">
         <div className="contact space-y-4">
           <div className='flex gap-2'>
-            <hr className='border-0 w-1 h-10 bg-[#0f0671]' />
+            <hr className='border-0 w-1 h-10 bg-[#f34a08f0]' />
             <h1 className='font-semibold'>Contact Us</h1>
           </div>
           <p className='text-xs sm:text-sm'>Call : +91 9635473546</p>
@@ -32,7 +32,7 @@ const Footer = () => {
         </div>
         <div className="footer-social space-y-4">
           <div className='flex gap-2'>
-            <hr className='border-0 w-1 h-10 bg-[#0f0671]' />
+            <hr className='border-0 w-1 h-10 bg-[#f34a08f0]' />
             <h1 className='font-semibold'>Follow Me</h1>
           </div>
           <div className='flex gap-12'>

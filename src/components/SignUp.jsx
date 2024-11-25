@@ -87,7 +87,7 @@ const SignUp = () => {
                                 required: true,
                             })}
                         />
-                        <Button type="submit" className="bg-[#0f0671] flex gap-2 justify-center text-white" >
+                        <Button type="submit" className="flex gap-2 justify-center bg-blue-600 hover:bg-blue-700 text-white" >
                             Creat Account
                             {loading ? <div className="h-6 w-6 border-4 border-blue-800 border-t-white rounded-full animate-spin"></div> : null}
                         </Button>
