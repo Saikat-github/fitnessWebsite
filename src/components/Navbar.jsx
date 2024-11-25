@@ -50,14 +50,14 @@ const Navbar = () => {
 
 
     return (
-        <div className='bg-[#0f0671] text-white h-20 px-3 sm:px-20 flex justify-between items-center sticky top-0 z-10'>
-            <Link to='/' className='text-4xl w-12 h-12'>
-                <img src="/logo2.png" className='object-fill rounded-full' alt="" />
+        <div className='text-gray-600 h-20 px-3 sm:px-20 flex justify-between items-center sticky top-0 z-10 shadow-lg bg-white'>
+            <Link to='/' className='text-4xl w-28 h-28'>
+                <img src="/logo5.png" className='object-fill' alt="" />
             </Link>
             <div className="options flex md:gap-6 text-lg z-10">
-                <ul className={`navitems text-white md:flex lg:gap-10 gap-4 bg-[#0f0671] ${options ? "flex flex-col gap-10 mt-48 py-6 px-2" : "hidden"}`}>
+                <ul className={`navitems md:flex lg:gap-10 gap-4 ${options ? "flex flex-col gap-10 mt-48 py-6 px-2" : "hidden"}`}>
                     {navOptions.map((item, idx) => (
-                        item.active && <li className=' transition px-6 py-2 hover:bg-blue-800 cursor-pointer text-sm font-semibold' key={idx} onClick={() => onClickHandler(item.url)}>
+                        item.active && <li className=' transition px-6 py-2 hover:text-black cursor-pointer text-sm font-semibold' key={idx} onClick={() => onClickHandler(item.url)}>
                             {item.name}
                         </li>
                     ))}
@@ -72,3 +72,6 @@ const Navbar = () => {
 }
 
 export default Navbar
+
+
+// bg-[#0f0671]

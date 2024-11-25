@@ -10,13 +10,14 @@ const Footer = () => {
   return (
     <div className='bg-gray-300 md:px-20 px-5'>
       <div className="footer-first py-20 flex gap-4 flex-col items-center">
-        <div className='text-4xl w-20'>
-          <img src="/logo2.png" className='object-fill rounded-full' alt="" />
+        <div className='w-72'>
+          <img src="/logo5.png" className='object-fill rounded-full' alt="" />
         </div>
         <h3 className='text-sm'>TAKE YOUR FIRST STEP TODAY</h3>
         <h1 className='font-semibold'>START YOUR TRANSFORMATION</h1>
         <div className='flex gap-2 flex-col sm:flex-row'>
-          <Button className='text-white bg-[#0f0671] py-4 hover:bg-white border hover:text-[#0f0671] font-semibold border-[#0f0671]' onClick={() => navigate("/input")} >JOIN NOW</Button>
+          <Button className='text-white bg-gray-900 py-4 hover:bg-white border hover:text-gray-900 font-semibold border-gray-900
+          ' onClick={() => navigate("/input")} >JOIN NOW</Button>
         </div>
       </div>
 
@@ -43,7 +44,7 @@ const Footer = () => {
       </div>
 
       <div className="footer-third md:py-10 text-xs text-center space-y-4">
-        <p>&copy; 2024 SAIKATSAHA FITNESS. All Rights Reserved.</p>
+        <p>&copy; 2024 ZERODIET.IN  All Rights Reserved.</p>
         <div className="details-terms flex gap-8 justify-center ">
           <Link className='hover:underline'>Privacy Policy</Link>
           <Link className='hover:underline'>Terms of Services</Link>

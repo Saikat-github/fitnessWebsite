@@ -22,9 +22,10 @@ const Hero = () => {
         </div>
 
         <div className='flex gap-2 flex-col sm:flex-row'>
-          <Button className='text-white bg-[#0f0671] py-4 hover:bg-white border hover:text-[#0f0671] font-semibold border-[#0f0671]' onClick={() => navigate("/input")} >JOIN NOW</Button>
+          <Button className='text-white bg-gray-900 py-4 hover:bg-white border hover:text-gray-900 font-semibold border-gray-900
+          ' onClick={() => navigate("/input")} >JOIN NOW</Button>
 
-          <Button className='text-white  py-4 hover:bg-white border font-semibold   bg-gradient-to-r from-gray-900 to-gray-400 hover:from-gray-400 hover:to-gray-900' onClick={() => navigate("/input-freesession")} >Book a Free Session</Button>
+          <Button className='text-white  py-4 border border-gray-900 font-semibold bg-gray-900 hover:bg-white hover:text-gray-900 transition-all duration-300' onClick={() => navigate("/input-freesession")} >Book a Free Session</Button>
         </div>
       </div>
     </div>
