@@ -21,7 +21,7 @@ const FreeSession = () => {
       const object = Object.fromEntries(formData);
       const json = JSON.stringify(object);
 
-      const res = await fetch("https://api.web3forms.com/submit", {
+      const res = await fetch(conf.web3url, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
