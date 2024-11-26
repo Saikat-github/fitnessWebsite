@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 const FreeSession = () => {
   const [error, setError] = useState(null);
   const [loader, setLoader] = useState(false);
+  const [result, setResult] = useState("");
   const { register, formState: { isSubmitting, errors, isSubmitSuccessful }, reset, handleSubmit } = useForm();
 
   const navigate = useNavigate();
@@ -28,7 +29,15 @@ const FreeSession = () => {
           Accept: "application/json"
         },
         body: json
-      }).then((res) => res.json());
+      })
+
+      const data = await res.json();
+
+    if (data.success) {
+      setResult("Session has been booked successfully, Please check your WhatsApp for updates");
+    } else {
+      setResult(data.message);
+    }
     } catch (error) {
       setError(error.message);
     } finally {
@@ -42,8 +51,8 @@ const FreeSession = () => {
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
       {isSubmitSuccessful
         ?
-        <div className='bg-white p-8 rounded shadow-lg w-full max-w-md mb-10'>Session has been booked successfully, Please check your WhatsApp for any updates
-          <span className='text-blue-800 cursor-pointer' onClick={() => navigate("/")}> Back To Home Page</span></div>
+        <div className='bg-white p-8 rounded-lg shadow-lg w-full max-w-md mb-10'>{result}
+          <span className='text-blue-700 font-semibold cursor-pointer' onClick={() => navigate("/")}> Back To Home Page</span></div>
         :
         <form
           onSubmit={handleSubmit(onSubmit)}
