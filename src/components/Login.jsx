@@ -32,6 +32,7 @@ const Login = () => {
       if (session) {
         authService.getCurrentUser().then((userData) => {
           if (userData) dispatch(storeLogin(userData));
+          alert("You're logged in successfully")
           navigate("/");
         });
       }
@@ -71,6 +72,7 @@ const Login = () => {
         authService.getCurrentUser().then((userData) => {
           if (userData) dispatch(storeLogin(userData));
           navigate("/");
+          alert("You're logged in successfully")
         });
       }
     } catch (error) {
@@ -132,7 +134,7 @@ const Login = () => {
                 className="flex gap-2 justify-center bg-blue-600 hover:bg-blue-700 text-white"
                 disabled={isSubmitting}
               >Login <div className={`h-6 w-6 border-4 border-blue-800 border-t-white rounded-full animate-spin ${loading ? "opacity-100" : "opacity-0"}`}></div></Button>
-              <span disabled={loading} className='text-xs hover:underline py-2 cursor-pointer' onClick={() => forgetPassword()}>
+              <span disabled={loading} className='text-xs hover:underline py-2 cursor-pointer ml-2 sm:ml-0' onClick={() => forgetPassword()}>
                 Forget Password?
               </span>
             </div>
