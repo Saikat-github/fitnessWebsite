@@ -21,7 +21,7 @@ const FreeSession = () => {
       const object = Object.fromEntries(formData);
       const json = JSON.stringify(object);
 
-      const res = await fetch(conf.web3url, {
+      const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -29,10 +29,6 @@ const FreeSession = () => {
         },
         body: json
       }).then((res) => res.json());
-
-      // if (res.success) {
-      //   alert("You've successfully booked a session");
-      // }
     } catch (error) {
       setError(error.message);
     } finally {
@@ -47,7 +43,7 @@ const FreeSession = () => {
       {isSubmitSuccessful
         ?
         <div className='bg-white p-8 rounded shadow-lg w-full max-w-md mb-10'>Session has been booked successfully, Please check your WhatsApp for any updates
-          <span className='text-blue-700' onClick={() => navigate("/")}>Back To Home Page</span></div>
+          <span className='text-blue-800 cursor-pointer' onClick={() => navigate("/")}> Back To Home Page</span></div>
         :
         <form
           onSubmit={handleSubmit(onSubmit)}
