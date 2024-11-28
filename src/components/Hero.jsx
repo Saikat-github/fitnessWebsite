@@ -26,7 +26,7 @@ const Hero = () => {
           <Button className='text-white bg-gray-900 py-4 hover:bg-white border hover:text-gray-900 font-semibold border-gray-900
           ' onClick={() => navigate("/input")} >JOIN NOW</Button>
 
-          <Button className='text-white  py-4 border border-gray-900 font-semibold bg-gray-900 hover:bg-white hover:text-gray-900 transition-all duration-300 flex items-center' onClick={() => navigate("/input-freesession")}>Book a Free Session on</Button>
+          <Button className='text-white  py-4 border border-gray-900 font-semibold bg-gray-900 hover:bg-white hover:text-gray-900 transition-all duration-300 flex items-center' onClick={() => navigate("/input-freesession")}>Book a Free Session</Button>
         </div>
       </div>
     </div>
