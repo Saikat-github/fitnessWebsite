@@ -8,14 +8,14 @@ import { useNavigate } from 'react-router-dom'
 const Section = () => {
     const navigate = useNavigate();
     return (
-        <div className='flex flex-col gap-6 items-center my-20'>
-            <div className='my-10 flex flex-col items-center'>
+        <div className='flex flex-col gap-6 items-center my-10'>
+            <div className='mb-10 flex flex-col items-center'>
                 <img src={logo} className='w-72' alt="" />
                 <h2 className='text-4xl font-semibold mb-8 text-center'>Exclusive Membership</h2>
                 <img src={formimage2} alt="" />
 
             </div>
-            <div className="info my-16 sm:my-28 flex flex-wrap gap-12 justify-center">
+            <div className="info my-12 sm:my-20 flex flex-wrap gap-12 justify-center">
                 <div className='space-y-12'>
                     <Info h1="WORKOUTS" h2="Customized Workout Plans" h2color={"bg-[#0f0671]"} />
                     <Info h1="NUTRITION" h2="Delicious meal recipes & nutrition planning" h2color={"bg-[#0f0671]"} />

@@ -1,6 +1,7 @@
 import React from 'react'
 import Button from './Button'
 import banner2 from '../assets/heroimage1.webp'
+import whatsappLogo from '../assets/whatsapp.svg'
 import { useNavigate } from 'react-router-dom'
 
 const Hero = () => {
@@ -11,7 +12,7 @@ const Hero = () => {
     <div className='flex flex-col md:flex-row bg-gray-300'>
       <img src={banner2} className='w-full md:w-1/2' alt="" />
       <div className="hero-right px-10 md:my-auto my-20 space-y-6 ">
-        <div className=' text-3xl xs:text-5xl font-semibold'>
+        <div className=' text-4xl xs:text-6xl font-semibold'>
           <hr className='border-0 w-20 h-2 bg-[#ec5418f0] mb-6' />
           Learn the Luxury of <span className='text-[#f34a08f0]'>Being Fit</span>
         </div>
@@ -25,7 +26,7 @@ const Hero = () => {
           <Button className='text-white bg-gray-900 py-4 hover:bg-white border hover:text-gray-900 font-semibold border-gray-900
           ' onClick={() => navigate("/input")} >JOIN NOW</Button>
 
-          <Button className='text-white  py-4 border border-gray-900 font-semibold bg-gray-900 hover:bg-white hover:text-gray-900 transition-all duration-300' onClick={() => navigate("/input-freesession")} >Book a Free Session</Button>
+          <Button className='text-white  py-4 border border-gray-900 font-semibold bg-gray-900 hover:bg-white hover:text-gray-900 transition-all duration-300 flex items-center' onClick={() => navigate("/input-freesession")}>Book a Free Session on</Button>
         </div>
       </div>
     </div>

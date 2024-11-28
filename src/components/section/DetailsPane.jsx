@@ -7,7 +7,7 @@ const DetailsPane = () => {
         <div className='py-20 flex gap-20 md:px-20 px-5 bg-slate-300 md:flex-row flex-col'>
             <img src={formimage1} className='max-w-md object-contain rounded-lg' alt="" />
             <div className="details space-y-4">
-                <h1 className='text-[#0f0671] font-semibold text-2xl'>THIS IS MY STORY</h1>
+                <h1 className='text-black font-semibold text-2xl'>THIS IS MY STORY</h1>
                 <h2 className='text-4xl font-semibold'>I'M SAIKAT SAHA</h2>
                 <p className='text-sm'>
                     <span className='font-bold'>I wasn’t born with a great physique</span>, and from a young age, I wasn’t happy with how I looked. Growing up skinny, it always bothered me, and in my teenage years, I decided to do something about it. I wanted to build a body that I could feel confident about and be proud of. Over the past 2.5 years, I’ve dedicated myself to learning everything I could about fitness and health, and along the way, I fell in love with the process.

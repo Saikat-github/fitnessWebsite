@@ -11,6 +11,8 @@ const FreeSession = () => {
 
   const navigate = useNavigate();
 
+
+  //NORMAL BOOKING
   const onSubmit = async (data, event) => {
     setError(null);
     setLoader(true);
@@ -31,13 +33,13 @@ const FreeSession = () => {
         body: json
       })
 
-      const data = await res.json();
+      const web3data = await res.json();
 
-    if (data.success) {
-      setResult("Session has been booked successfully, Please check your WhatsApp for updates");
-    } else {
-      setResult(data.message);
-    }
+      if (web3data.success) {
+        setResult("Session has been booked successfully, Please check your WhatsApp for updates");
+      } else {
+        setResult(web3data.message);
+      }
     } catch (error) {
       setError(error.message);
     } finally {
@@ -47,11 +49,30 @@ const FreeSession = () => {
 
   };
 
+
+
+  //WHATSAPP BOOKING
+  // const onSubmit = async (data) => {
+  //   setError(null);
+  //   setLoader(true);
+  //   try {
+  //     let whatsappUrl = "https://wa.me/919635473546?text=" + "Name : " + data.name + "%0a" + "Phone : " + data.phone + "%0a" + "Dates : " + data.dates
+
+  //     window.open(whatsappUrl, '_blank').focus()
+  //   } catch (error) {
+  //     setError(error.message);
+  //   } finally {
+  //     setLoader(false);
+  //     reset();
+  //   }
+  // };
+
+
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
       {isSubmitSuccessful
         ?
-        <div className='bg-white p-8 rounded-lg shadow-lg w-full max-w-md mb-10'>{result}
+        <div className='bg-white p-8 rounded-lg shadow-lg w-full max-w-md mb-10'>{error ? error : result} <br />
           <span className='text-blue-700 font-semibold cursor-pointer' onClick={() => navigate("/")}> Back To Home Page</span></div>
         :
         <form
@@ -115,10 +136,10 @@ const FreeSession = () => {
             </label>
             <textarea
               id="message"
-              {...register("message")}
+              {...register("dates")}
               rows="4"
               className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2`}
-              placeholder="Enter your dates"
+              placeholder="Date - 12/12/25                                                                                        Time - 7-10pm"
             />
 
           </div>
