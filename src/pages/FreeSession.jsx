@@ -104,22 +104,22 @@ const FreeSession = () => {
   // }
 
   return (
-    <div className="flex justify-center items-center min-h-screen">
+    <div className="flex justify-center min-h-screen">
       {isSubmitSuccessful
         ?
-        <div className='bg-gray-950 p-8 rounded-lg shadow-lg w-full max-w-md mb-10'>{error ? error : result} <br />
+        <div className='bg-gray-950 p-8 rounded-lg shadow-lg w-full max-w-md mb-10 mt-20'>{error ? error : result} <br />
           <span className='text-blue-700 font-semibold cursor-pointer' onClick={() => navigate("/")}> Back To Home Page</span></div>
         :
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="bg-gray-950 p-8 rounded shadow-lg w-full max-w-md mb-10"
+          className="text-sm bg-gray-950 p-8 rounded shadow-lg w-full max-w-md mb-10 my-4"
         >
           <h2 className="text-2xl font-bold text-center text-gray-50 mb-6">
             Book a Free Session
           </h2>
 
           {/* Name Field */}
-          <div className="mb-4 text-gray-100">
+          <div className="my-8 space-y-2 text-gray-100">
             <label htmlFor="name" className="block font-medium mb-1">
               Name<span className='text-red-600'>*</span>
             </label>
@@ -135,7 +135,7 @@ const FreeSession = () => {
           </div>
 
           {/* Phone Number Field */}
-          <div className="mb-4">
+          <div className="my-8 space-y-2">
             <label
               htmlFor="phone"
               className="block font-medium mb-1"
@@ -162,7 +162,7 @@ const FreeSession = () => {
           </div>
 
           {/* Message Field */}
-          <div className="mb-4">
+          <div className="my-8 space-y-2">
             <label
               htmlFor="message"
               className="block font-medium mb-1"
