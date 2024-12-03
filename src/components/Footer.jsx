@@ -1,14 +1,14 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import FacebookLogo from '../assets/facebook.svg';
-import TwitterLogo from '../assets/twitter.svg';
-import Instagram from '../assets/instagram.svg'
-import Button from './Button';
+import TwitterLogo from '../assets/twitterwhite.svg';
+import Instagram from '../assets/instagramwhite.svg'
+import Button1 from './Button1';
 
 const Footer = () => {
   const navigate = useNavigate();
   return (
-    <div className='bg-gray-300 md:px-20 px-5'>
+    <div className='bg-slate-950 md:px-20 px-5 text-white'>
       <div className="footer-first py-20 flex gap-4 flex-col items-center">
         <div className='w-72'>
           <img src="/logo5.png" className='object-fill rounded-full' alt="" />
@@ -16,15 +16,14 @@ const Footer = () => {
         <h3 className='text-sm'>TAKE YOUR FIRST STEP TODAY</h3>
         <h1 className='font-semibold'>START YOUR TRANSFORMATION</h1>
         <div className='flex gap-2 flex-col sm:flex-row'>
-          <Button className='text-white bg-gray-900 py-4 hover:bg-white border hover:text-gray-900 font-semibold border-gray-900
-          ' onClick={() => navigate("/input")} >JOIN NOW</Button>
+        <Button1 onClick={() => navigate("/input")} >JOIN NOW</Button1>
         </div>
       </div>
 
       <div className="footer-second py-10 flex gap-20 justify-around md:flex-row flex-col">
         <div className="contact space-y-4">
           <div className='flex gap-2'>
-            <hr className='border-0 w-1 h-10 bg-[#f34a08f0]' />
+            <hr className='border-0 w-1 h-10 bg-gradient-to-r from-red-500 via-red-600 to-red-700' />
             <h1 className='font-semibold'>Contact Us</h1>
           </div>
           <p className='text-xs sm:text-sm'>Call : +91 9635473546</p>
@@ -32,7 +31,7 @@ const Footer = () => {
         </div>
         <div className="footer-social space-y-4">
           <div className='flex gap-2'>
-            <hr className='border-0 w-1 h-10 bg-[#f34a08f0]' />
+            <hr className='border-0 w-1 h-10 bg-gradient-to-r from-red-500 via-red-600 to-red-700' />
             <h1 className='font-semibold'>Follow Me</h1>
           </div>
           <div className='flex gap-12'>

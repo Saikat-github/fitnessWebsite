@@ -30,24 +30,23 @@ const PricingPage = () => {
       features: ["Combined muscle gain & fat loss", "Diet and training plans", "Weekly adjustments", "Online coaching"],
       cta: "Transform Now",
     }
-
   ];
 
   return (
-    <div className="bg-gray-50 py-16 px-6">
-      <div className="max-w-7xl mx-auto text-center">
-        <h2 className="text-4xl font-bold text-gray-900 mb-6">Our Pricing Plans</h2>
-        <p className="text-lg text-gray-600 mb-12">
+    <div className="py-16 px-6">
+      <div className="max-w-7xl mx-auto text-center text-white">
+        <h2 className="text-4xl font-bold mb-6">Our Pricing Plans</h2>
+        <p className="text-lg mb-12">
           Choose the plan that suits your fitness goal. We offer flexible pricing for muscle building, weight loss, body recomposition, and guaranteed results.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {pricingPlans.map((plan) => (
-            <div key={plan.title} className="bg-white shadow-lg rounded-lg overflow-hidden">
+            <div key={plan.title} className="bg-gray-900 shadow-lg rounded-lg overflow-hidden">
               <div className="px-6 py-8">
-                <h3 className="text-xl font-semibold text-gray-800">{plan.title}</h3>
+                <h3 className="text-xl font-semibold text-white">{plan.title}</h3>
                 <p className="mt-4 text-3xl font-bold text-blue-600">{plan.price}</p>
-                <ul className="mt-6 text-gray-600 space-y-3">
+                <ul className="mt-6 text-white space-y-3">
                   {plan.features.map((feature, index) => (
                     <li key={index} className="flex items-center">
                       <svg
@@ -69,7 +68,7 @@ const PricingPage = () => {
                   ))}
                 </ul>
               </div>
-              <div className="bg-gray-100 px-6 py-4">
+              <div className="bg-gray-900 bg-opacity-40 px-6 py-4">
                 <button onClick={() => navigate("/input")} className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition duration-300">
                   {plan.cta}
                 </button>

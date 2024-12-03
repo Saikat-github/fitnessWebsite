@@ -57,7 +57,7 @@ const App = () => {
 
 
   return !authLoading ? (
-    <div className='font-Montserrat'>
+    <div className='font-Montserrat bg-gradient-to-r from-gray-700 via-gray-900 to-black text-white'>
       <Navbar />
       <main className='min-h-screen'>
         <ScrollToTop />
@@ -65,7 +65,7 @@ const App = () => {
       </main>
       <Footer />
     </div>
-  ) : (<div className='w-screen h-screen flex justify-center items-center bg-gray-100'><span className='w-16 h-16 border-8 rounded-full animate-spin border-dotted border-blue-700'></span></div>)
+  ) : (<div className='w-screen h-screen flex justify-center items-center'><span className='w-16 h-16 border-8 rounded-full animate-spin border-dotted border-black'></span></div>)
 }
 
 export default App

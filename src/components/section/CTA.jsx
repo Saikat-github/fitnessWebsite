@@ -1,6 +1,7 @@
 import React from 'react'
 import Info from './Info'
-import Button from '../Button'
+import Button1 from '../Button1'
+import Button2 from '../Button2'
 import { useNavigate } from 'react-router-dom'
 import whatsappLogo from "../../assets/whatsapp.svg"
 
@@ -8,7 +9,7 @@ const CTA = () => {
     const navigate = useNavigate();
 
     return (
-        <div className='flex flex-col gap-6 items-center my-20'>
+        <div className='flex flex-col gap-6 items-center py-20'>
             {/* <h1 className='text-[#0f0671] font-semibold text-2xl text-center'>SAIKATSAHA FITNESS</h1> */}
             {/* <img src="../logo5.png" className='w-28' alt="" /> */}
             <h2 className='md:text-4xl font-semibold lg:w-1/2 text-center flex gap-2 items-center'>Personalized workout routines and diet plan delivered via
@@ -25,10 +26,8 @@ const CTA = () => {
                 </div>
             </div>
             <div className='flex gap-2 flex-col sm:flex-row'>
-                <Button className='text-white bg-gray-900 py-4 hover:bg-white border hover:text-gray-900 font-semibold border-gray-900
-          ' onClick={() => navigate("/input")} >JOIN NOW</Button>
-
-                <Button className='text-white  py-4 border border-gray-900 font-semibold bg-gray-900 hover:bg-white hover:text-gray-900 transition-all duration-300' onClick={() => navigate("/input-freesession")} >Book a Free Session</Button>
+                <Button1 onClick={() => navigate("/input")} >JOIN NOW</Button1>
+                <Button2 onClick={() => navigate("/input-freesession")} >Book a Free Session</Button2>
             </div>
         </div>
     )

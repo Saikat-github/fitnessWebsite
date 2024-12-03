@@ -22,7 +22,7 @@ const LogoutBtn = ({setShowBar}) => {
   }
 
   return (
-    <button onClick={() => logout()} className='transition px-6 py-2 hover:text-black cursor-pointer text-sm font-semibold'>{loading ? <div className="h-6 w-6 border-4 border-t-blue-500 rounded-full animate-spin "></div> :"Logout"}</button>
+    <button onClick={() => logout()} className='transition px-6 py-2 text-gray-200 hover:text-white cursor-pointer text-sm font-semibold'>{loading ? <div className="h-6 w-6 border-4 border-t-black rounded-full animate-spin "></div> :"Logout"}</button>
   )
 }
 

@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useCallback } from "react";
 import dbService from "../appwrite/data";
 import { Link, useNavigate } from "react-router-dom";
-import Button from "./Button";
 import { useDispatch, useSelector } from "react-redux";
 import { removeDetails } from "../store/authSlice";
 import ConfirmationModal from "./ConfirmationModal"; // Import the modal
@@ -47,7 +46,7 @@ const UserInfo = ({ userId }) => {
 
   
   return userDetails ? (
-    <div className="flex flex-col gap-6 pt-2 items-center min-h-screen bg-gray-100">
+    <div className="flex flex-col gap-6 pt-2 items-center min-h-screen text-black">
       <div className="bg-white shadow-lg rounded-lg px-8 py-2 w-full max-w-md">
         Thank You for choosing us, we'll contact you in 24 hours
       </div>
@@ -65,13 +64,13 @@ const UserInfo = ({ userId }) => {
           <p><strong className="text-gray-700">Agreed to Continue:</strong> {userDetails.agreedToContinue}</p>
         </div>
       </div>
-      <Button
+      <button
         disabled={loading}
         onClick={() => openModal(userId)} // Trigger modal
-        className="bg-red-600 text-white hover:bg-red-700 rounded-lg"
+        className="bg-red-600 text-white hover:bg-red-700 rounded-lg py-3 px-6 font-semibold transition-all duration-300"
       >
         Delete Your Details
-      </Button>
+      </button>
 
       {/* Modal for confirmation */}
       <ConfirmationModal

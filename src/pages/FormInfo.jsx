@@ -153,9 +153,10 @@ const FormInfo = () => {
                 <div className='font-semibold text-sm lg:text-xl text-center w-2/3'>{question.question}</div>
                 {question.type === 'input' ? (
                     <input
+                    placeholder={question.name}
                         type='text'
                         {...register(question.name, { required: true })}
-                        className='px-10 py-2 border border-black rounded-full outline-none lg:w-[70vh] xl:w-[80vh]'
+                        className='text-black px-10 py-2 border border-black rounded-full outline-none lg:w-[70vh] xl:w-[80vh]'
                     />
                 ) : (
                     <div className='grid lg:grid-cols-2 grid-cols-1  gap-6 lg:px-20'>
@@ -163,7 +164,7 @@ const FormInfo = () => {
                             <button
                                 type="button"
                                 key={i}
-                                className={`px-10 py-4 border border-black rounded-full sm:w-80 w-64 text-sm transition-all duration-500 ${watch(question.name) === option ? "bg-red-700 text-white" : "hover:bg-red-700 hover:text-white"}`}
+                                className={`px-10 py-4 border border-white rounded-full sm:w-80 w-64 text-sm transition-all duration-500 ${watch(question.name) === option ? "bg-red-700 text-white" : "hover:bg-red-700 hover:text-white"}`}
                                 onClick={() => onBtnClicked(option, question)}
                             >
                                 {option}
@@ -179,7 +180,7 @@ const FormInfo = () => {
     if (userDetails) return (<div className='my-20 font-semibold text-center'>You have already submitted your details, to add new details please delete your info from <span className='text-blue-600 cursor-pointer' onClick={() => navigate('/account')}>Account</span> Page</div>)
 
     return !error ? (
-        <div className='lg:px-32 px-4 my-10'>
+        <div className='lg:px-32 px-4 py-10'>
             <h3 className='text-center text-xs lg:text-sm font-semibold text-red-600 my-4'>
                 Please fill in the details below correctly, so we can contact you and start helping you achieve your Goal fast.
             </h3>
@@ -193,19 +194,19 @@ const FormInfo = () => {
                 <br />
                 <div className="flex justify-around w-full my-4">
                     {currQuestion > 0 && (
-                        <button type="button" className="border sm:px-12 border-black hover:scale-105 transition p-2 rounded flex flex-row-reverse gap-2" onClick={handlePrev}>
+                        <button type="button" className="border sm:px-12  hover:scale-105 transition p-2 rounded flex flex-row-reverse gap-2" onClick={handlePrev}>
                             <span className='hidden sm:inline'>Previous</span>
                             <img src={arrowLeft} className='w-6' alt="" />
                         </button>
                     )}
                     {currQuestion < questions.length - 1 && (
-                        <button type="button" className="border sm:px-12 border-black hover:scale-105 transition p-2 rounded  bg-red-600 text-white flex  gap-2" onClick={handleNext}>
+                        <button type="button" className="border sm:px-12  hover:scale-105 transition p-2 rounded  bg-red-600 text-white flex  gap-2" onClick={handleNext}>
                             <span className='hidden sm:inline'>Next</span>
                             <img src={arrowRight} className='w-6' alt="" />
                         </button>
                     )}
                     {currQuestion === questions.length - 1 && (
-                        <button disabled={isSubmitting || userDetails} type="submit" className="flex gap-3 border sm:px-12 border-black hover:scale-105 transition p-2 rounded  bg-green-500 text-white">
+                        <button disabled={isSubmitting || userDetails} type="submit" className="flex gap-3 border sm:px-12  hover:scale-105 transition p-2 rounded  bg-green-500 text-white">
                             <span>Submit</span> {loading ? <div className="h-6 w-6 border-4 border-t-blue-500 rounded-full animate-spin "></div> : null}
                         </button>
                     )}

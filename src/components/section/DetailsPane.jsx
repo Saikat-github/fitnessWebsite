@@ -4,7 +4,7 @@ import formimage1 from '../../assets/myimage1.jpg'
 
 const DetailsPane = () => {
     return (
-        <div className='py-20 flex gap-20 md:px-20 px-5 bg-slate-300 md:flex-row flex-col'>
+        <div className='py-20 flex gap-20 md:px-20 px-5 md:flex-row flex-col'>
             <img src={formimage1} className='max-w-md object-contain rounded-lg' alt="" />
             <div className="details space-y-4">
                 <h1 className='text-black font-semibold text-2xl'>THIS IS MY STORY</h1>

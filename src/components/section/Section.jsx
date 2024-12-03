@@ -1,9 +1,11 @@
 import React from 'react'
-import Button from '../Button'
+import Button1 from '../Button1'
+import Button2 from '../Button2'
 import formimage2 from '../../assets/formimage-2.png'
 import logo from '../../assets/logo5.png'
 import Info from './Info'
 import { useNavigate } from 'react-router-dom'
+
 
 const Section = () => {
     const navigate = useNavigate();
@@ -27,10 +29,8 @@ const Section = () => {
             </div>
 
             <div className='flex gap-2 flex-col sm:flex-row'>
-                <Button className='text-white bg-gray-900 py-4 hover:bg-white border hover:text-gray-900 font-semibold border-gray-900
-          ' onClick={() => navigate("/input")} >JOIN NOW</Button>
-
-                <Button className='text-white  py-4 border border-gray-900 font-semibold bg-gray-900 hover:bg-white hover:text-gray-900 transition-all duration-300' onClick={() => navigate("/input-freesession")} >Book a Free Session</Button>
+            <Button1 onClick={() => navigate("/input")} >JOIN NOW</Button1>
+            <Button2 onClick={() => navigate("/input-freesession")} >Book a Free Session</Button2>
             </div>
         </div>
     )
