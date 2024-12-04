@@ -41,7 +41,7 @@ const SignUp = () => {
 
     return (
         <div className="flex justify-center h-screen z-10 animate">
-            <div className={`mx-auto w-full max-w-lg h-3/4 bg-gray-950 rounded-lg p-10 animate-[fadeIn_0.5s] overflow-y-auto mt-4 text-white border-2 border-blue-700`}>
+            <div className={`mx-auto w-full max-w-lg h-3/4 bg-gray-950 rounded-lg p-10 border border-black/10 animate-[fadeIn_0.5s] overflow-y-auto mt-4 text-white`}>
                 <div className='flex justify-end'>
                     <Link to='/' className='flex justify-end'>
                         <img src={cross} className='w-4' alt="" />

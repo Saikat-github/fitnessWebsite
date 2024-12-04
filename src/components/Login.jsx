@@ -88,7 +88,7 @@ const Login = () => {
     <div
       className='flex justify-center h-screen z-10'
     >
-      <div className={`mx-auto w-full max-w-lg h-3/4 bg-gray-950 rounded-lg px-10 animate-[fadeIn_1s] overflow-y-auto mt-4 border-2 border-blue-700`}>
+      <div className={`mx-auto w-full max-w-lg h-3/4 bg-gray-950 rounded-lg px-10 border border-black/10 animate-[fadeIn_1s] overflow-y-auto mt-4`}>
         <div className='flex justify-end'>
           <Link to='/' className='flex justify-end'>
             <img src={cross} className='w-4 mt-4' alt="" />

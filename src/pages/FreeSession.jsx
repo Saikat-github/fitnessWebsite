@@ -104,7 +104,7 @@ const FreeSession = () => {
   // }
 
   return (
-    <div className="flex justify-center min-h-screen ">
+    <div className="flex justify-center min-h-screen">
       {isSubmitSuccessful
         ?
         <div className='bg-gray-950 p-8 rounded-lg shadow-lg w-full max-w-md mb-10 mt-20'>{error ? error : result} <br />
@@ -112,7 +112,7 @@ const FreeSession = () => {
         :
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="text-sm bg-gray-950 p-8 rounded shadow-lg w-full max-w-md mb-10 my-4 border-2 border-blue-700"
+          className="text-sm bg-gray-950 p-8 rounded shadow-lg w-full max-w-md mb-10 my-4"
         >
           <h2 className="text-2xl font-bold text-center text-gray-50 mb-6">
             Book a Free Session
