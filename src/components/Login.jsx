@@ -7,7 +7,6 @@ import { useDispatch } from 'react-redux'
 import { login as storeLogin } from '../store/authSlice';
 import authService from '../appwrite/auth'
 import { useMemo } from 'react'
-import Button1 from './Button1'
 import cross from '../assets/cross.svg';
 
 
@@ -82,14 +81,14 @@ const Login = () => {
     } finally {
       setLoading(false);
     }
-    }, [dispatch])
+  }, [dispatch])
 
 
   return (
     <div
       className='flex justify-center h-screen z-10'
     >
-      <div className={`mx-auto w-full max-w-lg h-3/4 bg-gray-950 rounded-lg px-10 border border-black/10 animate-[fadeIn_1s] overflow-y-auto mt-4`}>
+      <div className={`mx-auto w-full max-w-lg h-3/4 bg-gray-950 rounded-lg px-10 animate-[fadeIn_1s] overflow-y-auto mt-4 border-2 border-blue-700`}>
         <div className='flex justify-end'>
           <Link to='/' className='flex justify-end'>
             <img src={cross} className='w-4 mt-4' alt="" />
@@ -129,10 +128,13 @@ const Login = () => {
               })}
             />
             <div className="flex justify-between">
-              <Button1
+              <button
+                className='font-semibold px-6 py-3 bg-gray-950 text-white 
+          rounded-lg transition-all duration-300 
+          hover:bg-gray-900  flex items-center gap-2 border-2 focus:outline-none focus:ring-2 focus:ring-white'
                 type="submit"
                 disabled={isSubmitting}
-              >Login <div className={`h-6 w-6 border-4 border-blue-800 border-t-white rounded-full animate-spin ${loading ? "opacity-100" : "opacity-0"}`}></div></Button1>
+              >Login <div className={`h-6 w-6 border-4 border-blue-800 border-t-white rounded-full animate-spin ${loading ? "opacity-100" : "opacity-0"}`}></div></button>
               <span disabled={loading} className='text-xs hover:underline py-2 cursor-pointer ml-2 sm:ml-0' onClick={() => forgetPassword()}>
                 Forget Password?
               </span>
@@ -147,7 +149,7 @@ const Login = () => {
 
         <div className="oauth my-4 flex flex-col gap-4 items-center">
           {/* <button className='hover:ring-1 hover:ring-blue-700  w-72 py-3 text-gray-600 flex gap-2 justify-center items-center shadow-lg'><img className='w-8' src={FacebookLogo} alt="" />Continue With Facebook</button> */}
-          <Button1 onClick={googleLogin} className='hover:ring-1 hover:ring-blue-700  w-72 py-3 flex gap-2 justify-center items-center shadow-xl'><img className='w-8' src={GoogleLogo} alt="" />Continue With Google</Button1>
+          <button onClick={googleLogin} className='hover:ring-1 hover:ring-blue-700  w-72 py-3 flex gap-2 justify-center items-center shadow-xl border-2 rounded-lg hover:bg-gray-900 transition-all duration-300'><img className='w-8' src={GoogleLogo} alt="" />Continue With Google</button>
         </div>
 
       </div>

@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import authService from '../appwrite/auth';
-import {login as storeLogin} from '../store/authSlice'
+import { login as storeLogin } from '../store/authSlice'
 import { useDispatch } from 'react-redux';
 import Button1 from './Button1';
 import cross from '../assets/cross.svg';
@@ -35,16 +35,16 @@ const SignUp = () => {
             setLoading(false);
             reset()
         }
-        
+
     }
 
-    
+
     return (
         <div className="flex justify-center h-screen z-10 animate">
-            <div className={`mx-auto w-full max-w-lg h-3/4 bg-gray-950 rounded-lg p-10 border border-black/10 animate-[fadeIn_0.5s] overflow-y-auto mt-4 text-white`}>
+            <div className={`mx-auto w-full max-w-lg h-3/4 bg-gray-950 rounded-lg p-10 animate-[fadeIn_0.5s] overflow-y-auto mt-4 text-white border-2 border-blue-700`}>
                 <div className='flex justify-end'>
                     <Link to='/' className='flex justify-end'>
-                    <img src={cross} className='w-4' alt="" />
+                        <img src={cross} className='w-4' alt="" />
                     </Link >
                 </div>
                 <h2 className="text-center text-3xl leading-tight">Sign up</h2>
@@ -62,7 +62,7 @@ const SignUp = () => {
                 <form onSubmit={handleSubmit(create)}>
                     <div className='space-y-8 mt-8'>
                         <Input
-                            
+
                             placeholder="Enter your full name"
                             {...register("name", {
                                 required: true,
@@ -86,10 +86,12 @@ const SignUp = () => {
                                 required: true,
                             })}
                         />
-                        <Button1 type="submit" disabled={loading} >
+                        <button className='font-semibold px-6 py-3 bg-gray-950  text-white 
+                            rounded-lg transition-all duration-300 
+                            hover:bg-gray-900  flex items-center gap-2 border-2 focus:outline-none focus:ring-2 focus:ring-white' type="submit" disabled={loading} >
                             Creat Account
                             {loading ? <div className="h-6 w-6 border-4 border-blue-800 border-t-white rounded-full animate-spin"></div> : null}
-                        </Button1>
+                        </button>
                     </div>
                 </form>
             </div>
