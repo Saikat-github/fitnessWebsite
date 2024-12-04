@@ -11,7 +11,7 @@ const Footer = () => {
     <div className='bg-slate-950 md:px-20 px-5 text-white'>
       <div className="footer-first py-20 flex gap-4 flex-col items-center">
         <div className='w-72'>
-          <img src="/logo5.png" className='object-fill rounded-full' alt="" />
+          <img src="/logo6.png" className='object-fill rounded-full' alt="" />
         </div>
         <h3 className='text-sm'>TAKE YOUR FIRST STEP TODAY</h3>
         <h1 className='font-semibold'>START YOUR TRANSFORMATION</h1>

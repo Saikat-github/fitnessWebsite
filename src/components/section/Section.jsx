@@ -2,7 +2,7 @@ import React from 'react'
 import Button1 from '../Button1'
 import Button2 from '../Button2'
 import formimage2 from '../../assets/formimage-2.png'
-import logo from '../../assets/logo5.png'
+import logo from '../../assets/logo6.png'
 import Info from './Info'
 import { useNavigate } from 'react-router-dom'
 
@@ -13,7 +13,7 @@ const Section = () => {
         <div className='flex flex-col gap-6 items-center my-10'>
             <div className='mb-10 flex flex-col items-center'>
                 <img src={logo} className='w-72' alt="" />
-                <h2 className='text-4xl font-semibold mb-8 text-center'>Exclusive Membership</h2>
+                <h2 className='text-4xl font-semibold mb-8 text-center text-gray-200'>Exclusive Membership</h2>
                 <img src={formimage2} alt="" />
 
             </div>

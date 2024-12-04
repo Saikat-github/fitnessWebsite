@@ -8,26 +8,26 @@ const PricingPage = () => {
   const pricingPlans = [
     {
       title: "Guaranteed: Lose 5-10kg in 6 weeks",
-      price: "₹2,999",
+      price: "₹1,999/month",
       features: ["Money-back guarantee", "Customized diet & workout", "Progress monitoring", "6-week intensive coaching"],
       cta: "Start Your Journey",
     },
     {
       title: "Muscle Building",
-      price: "₹ 1,499/month",
+      price: "₹ 1,599/month",
       features: ["Personalized workout plans", "Diet consultation", "Weekly check-ins", "24/7 Support"],
       cta: "Get Started",
     },
     {
       title: "Weight Loss",
-      price: "₹ 1,499/month",
+      price: "₹ 1,599/month",
       features: ["Custom fat-loss strategies", "Nutrition guides", "Daily motivation", "Progress tracking"],
       cta: "Join Now",
     },
     {
       title: "Body Recomposition",
       price: "₹ 1,999/month",
-      features: ["Combined muscle gain & fat loss", "Diet and training plans", "Weekly adjustments", "Online coaching"],
+      features: ["Money-back guarantee", "Combined muscle gain & fat loss", "Diet and training plans", "Weekly adjustments"],
       cta: "Transform Now",
     }
   ];
@@ -36,7 +36,7 @@ const PricingPage = () => {
     <div className="py-16 px-6">
       <div className="max-w-7xl mx-auto text-center text-white">
         <h2 className="text-4xl font-bold mb-6">Our Pricing Plans</h2>
-        <p className="text-lg mb-12">
+        <p className="text-sm sm:text-lg mb-12">
           Choose the plan that suits your fitness goal. We offer flexible pricing for muscle building, weight loss, body recomposition, and guaranteed results.
         </p>
 

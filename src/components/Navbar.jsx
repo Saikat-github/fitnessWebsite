@@ -52,7 +52,7 @@ const Navbar = () => {
     return (
         <div className=' h-20 px-3 sm:px-20 flex justify-between items-center sticky top-0 z-10 shadow-lg bg-gradient-to-r from-gray-700 via-gray-900 to-black py-12 text-gray-200'>
             <Link to='/' className='text-4xl w-28 h-28'>
-                <img src="/logo5.png" className='object-fill' alt="" />
+                <img src="/logo6.png" className='object-fill' alt="" />
             </Link>
             <div className="showBar flex md:gap-6 text-lg z-10">
                 <ul className={`navitems md:flex lg:gap-10 gap-2 ${showBar ? "flex flex-col gap-10 mt-48 py-6 px-2 bg-gradient-to-r from-gray-700 via-gray-900 to-black rounded-lg" : "hidden"}`}>
