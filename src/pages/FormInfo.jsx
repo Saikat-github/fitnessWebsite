@@ -6,6 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import dbService from '../appwrite/data';
 import { addDetails } from '../store/authSlice';
+import {sendTelegramNotification} from '../conf/otherInfo.js'
 
 const FormInfo = () => {
     const [currQuestion, setCurrQuestion] = useState(0);
@@ -17,7 +18,7 @@ const FormInfo = () => {
     const userData = useSelector((state) => state.auth.userData);
     const userDetails = useSelector((state) => state.auth.userDetails);
     const dispatch = useDispatch();
-
+    
 
 
     useEffect(() => {
@@ -100,6 +101,7 @@ const FormInfo = () => {
         try {
             const formData = await dbService.createPost({ ...data, userId: userData.$id });
             if (formData) {
+                await sendTelegramNotification(data);
                 alert("Form submitted succesfully");
                 dispatch(addDetails({...formData, email: userData.email}))
                 navigate("/account")
