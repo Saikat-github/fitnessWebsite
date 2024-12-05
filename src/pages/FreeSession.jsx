@@ -3,9 +3,9 @@ import { useForm } from 'react-hook-form'
 import conf from '../conf/conf';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { sendTelegramNotification } from '../conf/otherInfo';
 
 const FreeSession = () => {
-  const [error, setError] = useState(null);
   const [loader, setLoader] = useState(false);
   const [result, setResult] = useState("");
   const { register, formState: { isSubmitting, errors, isSubmitSuccessful }, reset, handleSubmit } = useForm();
@@ -13,36 +13,54 @@ const FreeSession = () => {
   const navigate = useNavigate();
 
 
+  // // NORMAL BOOKING
+  // const onSubmit = async (data, event) => {
+  //   setError(null);
+  //   setLoader(true);
+  //   try {
+  //     const formData = new FormData(event.target);
+
+  //     formData.append("access_key", conf.web3accesskey);
+
+  //     const object = Object.fromEntries(formData);
+  //     const json = JSON.stringify(object);
+
+  //     const res = await fetch(conf.web3url, {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         Accept: "application/json"
+  //       },
+  //       body: json
+  //     })
+
+  //     const web3data = await res.json();
+
+  //     if (web3data.success) {
+  //       setResult("Session has been booked successfully, Please check your WhatsApp for updates");
+  //     } else {
+  //       setResult(web3data.message);
+  //     }
+  //   } catch (error) {
+  //     setError(error.message);
+  //   } finally {
+  //     setLoader(false);
+  //     reset();
+  //   }
+
+  // };
+
+
+
   // NORMAL BOOKING
   const onSubmit = async (data, event) => {
-    setError(null);
+    setResult(null);
     setLoader(true);
     try {
-      const formData = new FormData(event.target);
-
-      formData.append("access_key", conf.web3accesskey);
-
-      const object = Object.fromEntries(formData);
-      const json = JSON.stringify(object);
-
-      const res = await fetch(conf.web3url, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json"
-        },
-        body: json
-      })
-
-      const web3data = await res.json();
-
-      if (web3data.success) {
-        setResult("Session has been booked successfully, Please check your WhatsApp for updates");
-      } else {
-        setResult(web3data.message);
-      }
+      await sendTelegramNotification(data);
+      setResult("Session has been booked successfully, Please check your WhatsApp for updates")
     } catch (error) {
-      setError(error.message);
+      setResult(error.message);
     } finally {
       setLoader(false);
       reset();
@@ -52,63 +70,12 @@ const FreeSession = () => {
 
 
 
-  // const sendTelegramNotification = async (data) => {
-  //   const message = `
-  // 📋 New Personal Training Inquiry 📋
-  
-  // Name: ${data.name || 'N/A'}
-  // Phone: ${data.phone || 'N/A'}
-  // message: ${data.message || 'N/A'}
-  
-  // Submission Time: ${new Date().toLocaleString()}
-  //   `;
-  
-  //   try {
-  //     const response = await axios.post(
-  //       `https://api.telegram.org/bot${conf.telegramBotToken}/sendMessage`,
-  //       {
-  //         chat_id: conf.telegramChatId,
-  //         text: message,
-  //         parse_mode: 'Markdown' // Enables formatting
-  //       },
-  //       {
-  //         headers: {
-  //           'Content-Type': 'application/json'
-  //         }
-  //       }
-  //     );
-  //     return response.data;
-  //   } catch (error) {
-  //     console.error('Telegram notification detailed error:', {
-  //       message: error.message,
-  //       response: error.response?.data,
-  //       status: error.response?.status,
-  //       headers: error.response?.headers
-  //     });
-  //     throw error;
-  //   }
-  // };
-
-  // const onSubmit = async (data) => {
-  //   setError(null)
-  //   setLoader(true);
-  //   try {
-  //     await sendTelegramNotification(data);
-  //     setResult("Session has been booked successfully, Please check your WhatsApp for updates");
-  //   } catch (error) {
-  //     setError(error.message);
-  //   } finally {
-  //     setLoader(false);
-  //     reset();
-  //   }
-  // }
-
   return (
     <div className="flex justify-center min-h-screen">
       {isSubmitSuccessful
         ?
-        <div className='bg-gray-950 p-8 rounded-lg shadow-lg w-full max-w-md mb-10 mt-20'>{error ? error : result} <br />
-          <span className='text-blue-700 font-semibold cursor-pointer' onClick={() => navigate("/")}> Back To Home Page</span></div>
+        <div className='bg-gray-950 p-8 max-h-40 rounded-lg shadow-lg w-full max-w-md mb-10 mt-20 text-center'>{result} <br />
+          <span className='text-indigo-500 font-semibold cursor-pointer' onClick={() => navigate("/")}> Back To Home Page</span></div>
         :
         <form
           onSubmit={handleSubmit(onSubmit)}
@@ -187,7 +154,7 @@ const FreeSession = () => {
           >
             Submit {loader ? <span className='w-6 h-6 border-4 rounded-full animate-spin border-dotted'></span> : null}
           </button>
-          {error && <p className='text-center text-red-600 text-sm font-semibold'>{error.toUpperCase()}!</p>}
+          {/* {error && <p className='text-center text-red-600 text-sm font-semibold'>{error.toUpperCase()}!</p>} */}
         </form>}
     </div>
   )
