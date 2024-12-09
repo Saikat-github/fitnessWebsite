@@ -14,7 +14,7 @@ export class DbService {
         this.storage = new Storage(this.client);
     }
 
-    async createPost({applicantGoal, applicantAge, applicantGender, agreedToContinue, planChoosen, applicantName, phoneNo, email, instaID, userId}) {
+    async createPost({applicantGoal, applicantAge, applicantGender, agreedToContinue, planChoosen, applicantName, phoneNo, email, instaID, userId, weight, height}) {
         try {
             return await this.databases.createDocument(
                 conf.appwriteDatabaseId,
@@ -30,7 +30,9 @@ export class DbService {
                     phoneNo, 
                     email, 
                     instaID, 
-                    userId
+                    userId,
+                    weight,
+                    height
                 }
             )
         } catch (error) {

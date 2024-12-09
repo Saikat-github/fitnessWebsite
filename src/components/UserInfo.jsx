@@ -44,7 +44,7 @@ const UserInfo = ({ userId }) => {
 
 
 
-  
+
   return userDetails ? (
     <div className="flex flex-col gap-6 pt-2 items-center min-h-screen text-black">
       <div className="bg-white shadow-lg rounded-lg px-8 py-2 w-full max-w-md">
@@ -55,11 +55,17 @@ const UserInfo = ({ userId }) => {
         <div className="space-y-4">
           <p><strong className="text-gray-700">Name:</strong> {userDetails.applicantName}</p>
           <p><strong className="text-gray-700">Email:</strong> {userDetails.email}</p>
-          {userDetails.instaID && <p><strong className="text-gray-700">Instagram ID:</strong> {userDetails.instaID}</p>}
-          <p><strong className="text-gray-700">Goal:</strong> {userDetails.applicantGoal}</p>
-          <p><strong className="text-gray-700">Age:</strong> {userDetails.applicantAge}</p>
-          <p><strong className="text-gray-700">Gender:</strong> {userDetails.applicantGender}</p>
           <p><strong className="text-gray-700">Phone Number:</strong> {userDetails.phoneNo}</p>
+          <p><strong className="text-gray-700">Goal:</strong> {userDetails.applicantGoal}</p>
+          <p className="space-x-6">
+            <span><strong className="text-gray-700">Age:</strong> {userDetails.applicantAge}</span>
+            <span><strong className="text-gray-700">Gender:</strong> {userDetails.applicantGender}</span>
+          </p>
+          <p className="space-x-6">
+            <span><strong className="text-gray-700">Weight:</strong> {userDetails.weight} kg</span>
+            <span><strong className="text-gray-700">Height:</strong> {userDetails.height} ft</span>
+          </p>
+
           <p><strong className="text-gray-700">Plan Chosen:</strong> {userDetails.planChoosen}</p>
           <p><strong className="text-gray-700">Agreed to Continue:</strong> {userDetails.agreedToContinue}</p>
         </div>

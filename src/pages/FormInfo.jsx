@@ -6,7 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import dbService from '../appwrite/data';
 import { addDetails } from '../store/authSlice';
-import {sendTelegramNotification} from '../conf/otherInfo.js'
+import { sendTelegramNotification } from '../conf/otherInfo.js'
 
 const FormInfo = () => {
     const [currQuestion, setCurrQuestion] = useState(0);
@@ -18,7 +18,7 @@ const FormInfo = () => {
     const userData = useSelector((state) => state.auth.userData);
     const userDetails = useSelector((state) => state.auth.userDetails);
     const dispatch = useDispatch();
-    
+
 
 
     useEffect(() => {
@@ -30,7 +30,7 @@ const FormInfo = () => {
 
     const handleRedirect = () => {
         window.open('/pricing', '_blank');
-      };
+    };
 
     const questions = [
         {
@@ -41,27 +41,15 @@ const FormInfo = () => {
         },
         {
             type: "button",
-            question: <p><span className='text-red-600'>*</span>How old are you? My coaching is 18+</p>,
-            options: ["18-25", "26-35", "36-45", "46+"],
-            name: "applicantAge"
-        },
-        {
-            type: "button",
             question: <p><span className='text-red-600'>*</span>What is your gender?</p>,
             options: ["Male", "Female", "Other", "Prefer not to answer"],
             name: "applicantGender"
         },
         {
             type: "button",
-            question: <p><span className='text-red-600'>*</span>This application is for paid 1:1 coaching (including personalized nutrition, workouts, weekly chckins & whatsApp chat with me) do you want to continue?</p>,
+            question: <p><span className='text-red-600'>*</span>This application is for paid 1:1 coaching (including personalized nutrition, workouts, weekly check-ins & WhatsApp chat with me) do you want to continue?</p>,
             options: ["Yes", "No cancel my application"],
             name: "agreedToContinue"
-        },
-        {
-            type: "button",
-            question: <p><span className='text-red-600'>*</span>Please Choose Your Plan (See pricing details on <Link className='text-blue-700' to="#" onClick={handleRedirect}>Pricing Page</Link> )</p>,
-            options: ["Guaranteed: Lose 5-10kg in 6 weeks [₹2999/mo]","Muscle Building [₹1499/mo]", "Weight Loss [₹1499/mo]", "Body Recomposition [₹1999/mo]"],
-            name: "planChoosen"
         },
         {
             type: 'input',
@@ -73,21 +61,32 @@ const FormInfo = () => {
             question: <p><span className='text-red-600'>*</span>What is your phone number?</p>,
             name: "phoneNo"
         },
-        // {
-        //     type: "input",
-        //     question: "What is your e-mail address?",
-        //     name: "email"
-        // },
+        {
+            type: "input",
+            question: <p><span className='text-red-600'>*</span>How old are you? My coaching is for 18+</p>,
+            name: "applicantAge"
+        },
+        {
+            type: "input",
+            question: "What is your weight in kg?",
+            name: "weight"
+        },
+        {
+            type: "input",
+            question: "What is your height (in feet)?",
+            name: "height"
+        },
+        {
+            type: "button",
+            question: <p><span className='text-red-600'>*</span>Please Choose Your Plan, You don't have to pay now. <br /> (See pricing details on <Link className='text-blue-500' to="#" onClick={handleRedirect}>Pricing Page</Link> )</p>,
+            options: ["Guaranteed: Lose 5-10 kg in 6 weeks (₹ 1999/mo)", "Muscle Building (₹ 1599/mo)", "Body Recomposition (₹ 1999/mo)"],
+            name: "planChoosen"
+        },
         {
             type: "input",
             question: <p><span className='text-red-600'>*</span>Name of your gym <br /><span className='text-xs'>(If you're not a member of any gym write N/A)</span></p>,
             name: "gymName",
-        },
-        // {
-        //     type: "input",
-        //     question: "What is your instagram handle?",
-        //     name: "instaID"
-        // }
+        }
     ];
 
 
@@ -97,18 +96,17 @@ const FormInfo = () => {
     const onSubmit = async (data) => {
         setError(null);
         setLoading(true);
-        console.log(data);
         try {
             const formData = await dbService.createPost({ ...data, userId: userData.$id });
             if (formData) {
                 await sendTelegramNotification(data, "APPLICATION FOR PROGRAM");
                 alert("Form submitted succesfully");
-                dispatch(addDetails({...formData, email: userData.email}))
+                dispatch(addDetails({ ...formData, email: userData.email }))
                 navigate("/account")
             }
         } catch (error) {
             setError(error.message);
-            console.log(error.message);
+            console.log(error);
         } finally {
             setLoading(false);
         }
@@ -155,7 +153,7 @@ const FormInfo = () => {
                 <div className='font-semibold text-sm lg:text-xl text-center w-2/3'>{question.question}</div>
                 {question.type === 'input' ? (
                     <input
-                    placeholder={question.name}
+                        placeholder={question.name}
                         type='text'
                         {...register(question.name, { required: true })}
                         className='text-black px-10 py-2 border border-black rounded-full outline-none lg:w-[70vh] xl:w-[80vh]'
@@ -167,7 +165,7 @@ const FormInfo = () => {
                                 type="button"
                                 key={i}
                                 className={`px-10 py-4 border border-white rounded-full sm:w-80 w-64 text-sm transition-all duration-500 ${watch(question.name) === option ? "bg-red-700 text-white" : "hover:bg-red-700 hover:text-white"}`}
-                                onClick={() => onBtnClicked(option, question)}
+                                onClick={option === "No cancel my application" ? () => navigate("/") : () => onBtnClicked(option, question)}
                             >
                                 {option}
                             </button>
@@ -215,7 +213,7 @@ const FormInfo = () => {
                 </div>
             </form>
         </div>
-    ) : (<div className='h-screen text-center my-20 text-3xl text-red-600 font-semibold'>{error}</div>)
+    ) : (<div className='h-screen text-center my-20 text-3xl text-red-600 font-semibold'>{error} <br /><span className='text-blue-600'>Please Reload the page</span></div>)
 }
 
 export default FormInfo
