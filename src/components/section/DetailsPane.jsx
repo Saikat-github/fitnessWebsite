@@ -1,12 +1,15 @@
 import React from 'react'
-import formimage1 from '../../assets/formimage-1.png'
+import formimage1 from '../../assets/myimage1.jpg'
 import formimage2 from '../../assets/myimage2.png'
+import formimage3 from '../../assets/myimage3.png'
+
 
 const DetailsPane = () => {
     return (
         <div className='py-20 '>
             <h1 className='text-4xl font-semibold mb-10 text-center text-gray-200'>THIS IS MY STORY</h1>
-            <div className='flex gap-10 md:px-20 px-5 md:flex-row flex-col'>
+            <div className='flex gap-8 md:px-20 px-5 md:flex-row flex-col'>
+                <img src={formimage3} className='max-w-md object-contain rounded-lg' alt="" />
                 <img src={formimage2} className='max-w-md object-contain rounded-lg' alt="" />
                 <div className="details space-y-4">
                     <h2 className='text-2xl font-semibold'>I'M SAIKAT SAHA</h2>

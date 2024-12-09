@@ -101,7 +101,7 @@ const FormInfo = () => {
         try {
             const formData = await dbService.createPost({ ...data, userId: userData.$id });
             if (formData) {
-                await sendTelegramNotification(data);
+                await sendTelegramNotification(data, "APPLICATION FOR PROGRAM");
                 alert("Form submitted succesfully");
                 dispatch(addDetails({...formData, email: userData.email}))
                 navigate("/account")

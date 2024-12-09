@@ -1,7 +1,7 @@
 
 import conf from './conf';
 
-const sendTelegramNotification = async (formData) => {
+const sendTelegramNotification = async (formData, formtype="Form Type - None") => {
     try {
         // Telegram Bot Configuration
         const TELEGRAM_BOT_TOKEN = conf.telegramBotToken
@@ -9,7 +9,11 @@ const sendTelegramNotification = async (formData) => {
 
         // Construct message
         const message = `
-📝 New Form Submission:
+NEW FORM SUBMISSION ZERODIET.IN
+TYPE - ${formtype}
+WhatsApp Link - https://wa.me/91${formData.phoneNo || "None"}
+
+Details - 
 ${Object.entries(formData).map(([key, value]) => `• ${key}: ${value}`).join('\n')}
     `;
 

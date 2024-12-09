@@ -57,7 +57,7 @@ const FreeSession = () => {
     setResult(null);
     setLoader(true);
     try {
-      await sendTelegramNotification(data);
+      await sendTelegramNotification(data, "FREE SESSION");
       setResult("Session has been booked successfully, Please check your WhatsApp for updates")
     } catch (error) {
       setResult(error.message);
@@ -112,7 +112,7 @@ const FreeSession = () => {
             <input
               id="phone"
               type="tel"
-              {...register("phone", {
+              {...register("phoneNo", {
                 required: "Phone number is required",
                 pattern: {
                   value: /^[0-9]{10}$/,
