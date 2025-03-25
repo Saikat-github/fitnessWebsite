@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { Outlet, useNavigate } from 'react-router-dom'
-import { Footer, Navbar, ScrollToTop } from './components'
+import { Footer, MinimalLoader, Navbar, ScrollToTop } from './components'
 import { useDispatch, useSelector } from 'react-redux'
 import authService from './appwrite/auth'
 import { login, logout, addDetails, removeDetails } from './store/authSlice'
 import dbService from './appwrite/data'
 import ReactGA from "react-ga4";
+import { ToastContainer } from "react-toastify";
 
 ReactGA.initialize("G-1QYWZQESQK");
 ReactGA.send("pageview");
@@ -57,7 +58,8 @@ const App = () => {
 
 
   return !authLoading ? (
-    <div className='font-Montserrat bg-gradient-to-r from-gray-700 via-gray-900 to-black text-white'>
+    <div className='font-Montserrat bg-slate-950 text-white'>
+      <ToastContainer position="top-right" autoClose={3000} />
       <Navbar />
       <main className='min-h-screen'>
         <ScrollToTop />
@@ -65,7 +67,9 @@ const App = () => {
       </main>
       <Footer />
     </div>
-  ) : (<div className='w-screen h-screen flex justify-center items-center'><span className='w-16 h-16 border-8 rounded-full animate-spin border-dotted border-black'></span></div>)
+  ) : <MinimalLoader className='w-8 h-8 border-4'/>
 }
 
 export default App
+
+

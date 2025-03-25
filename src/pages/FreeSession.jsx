@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import conf from '../conf/conf';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import { sendTelegramNotification } from '../conf/otherInfo';
 
 const FreeSession = () => {
@@ -11,46 +9,6 @@ const FreeSession = () => {
   const { register, formState: { isSubmitting, errors, isSubmitSuccessful }, reset, handleSubmit } = useForm();
 
   const navigate = useNavigate();
-
-
-  // // NORMAL BOOKING
-  // const onSubmit = async (data, event) => {
-  //   setError(null);
-  //   setLoader(true);
-  //   try {
-  //     const formData = new FormData(event.target);
-
-  //     formData.append("access_key", conf.web3accesskey);
-
-  //     const object = Object.fromEntries(formData);
-  //     const json = JSON.stringify(object);
-
-  //     const res = await fetch(conf.web3url, {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //         Accept: "application/json"
-  //       },
-  //       body: json
-  //     })
-
-  //     const web3data = await res.json();
-
-  //     if (web3data.success) {
-  //       setResult("Session has been booked successfully, Please check your WhatsApp for updates");
-  //     } else {
-  //       setResult(web3data.message);
-  //     }
-  //   } catch (error) {
-  //     setError(error.message);
-  //   } finally {
-  //     setLoader(false);
-  //     reset();
-  //   }
-
-  // };
-
-
 
   // NORMAL BOOKING
   const onSubmit = async (data, event) => {
@@ -81,7 +39,7 @@ const FreeSession = () => {
           onSubmit={handleSubmit(onSubmit)}
           className="text-sm bg-gray-950 p-8 rounded shadow-lg w-full max-w-md mb-10 my-4"
         >
-          <h2 className="text-2xl font-bold text-center text-gray-50 mb-6">
+          <h2 className="text-2xl font-semibold text-center bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 bg-clip-text text-transparent mb-8">
             Book a Free Session
           </h2>
 
@@ -150,7 +108,7 @@ const FreeSession = () => {
           <button
             disabled={isSubmitting}
             type="submit"
-            className="w-full flex gap-2 justify-center bg-blue-800 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-blue-300 transition-all duration-500"
+            className="flex gap-2 justify-center text-white py-2 px-4 rounded-full transition-all duration-500 border-2 border-blue-700 w-48 mx-auto"
           >
             Submit {loader ? <span className='w-6 h-6 border-4 rounded-full animate-spin border-dotted'></span> : null}
           </button>

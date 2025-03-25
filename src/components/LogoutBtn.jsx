@@ -4,6 +4,10 @@ import { useState } from 'react';
 import { logout as storeLogout } from '../store/authSlice';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { SmallLoader } from './util components/MinimalLoader';
+import { LogOut } from "lucide-react";
+import { toast } from 'react-toastify';
+
 
 
 const LogoutBtn = ({setShowBar}) => {
@@ -16,13 +20,16 @@ const LogoutBtn = ({setShowBar}) => {
     await authService.logout()
     dispatch(storeLogout());
     setShowBar(false)
-    alert("You're logged out successfully")
+    toast.success("You're logged out successfully")
     navigate("/")
     setLoading(false);
   }
 
   return (
-    <button onClick={() => logout()} className='transition px-6 py-2 text-gray-200 hover:text-white cursor-pointer text-sm font-semibold'>{loading ? <div className="h-6 w-6 border-4 border-t-black rounded-full animate-spin "></div> :"Logout"}</button>
+    <button onClick={() => logout()} className='transition px-4 py-2 hover:text-white cursor-pointer text-sm  flex items-center gap-2'>
+      <LogOut />
+      {loading ? <SmallLoader /> :"Logout"}
+      </button>
   )
 }
 

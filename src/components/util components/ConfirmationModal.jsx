@@ -1,6 +1,7 @@
 import React from "react";
+import { SmallLoader } from "./MinimalLoader";
 
-const ConfirmationModal = ({ isOpen, message, onConfirm, onCancel }) => {
+const ConfirmationModal = ({ isOpen, message, onConfirm, onCancel, loader}) => {
   if (!isOpen) return null;
 
   return (
@@ -18,7 +19,13 @@ const ConfirmationModal = ({ isOpen, message, onConfirm, onCancel }) => {
             onClick={onConfirm}
             className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700"
           >
-            Yes
+            {
+              loader
+              ?
+              <SmallLoader />
+              :
+              "Yes"
+            }
           </button>
         </div>
       </div>

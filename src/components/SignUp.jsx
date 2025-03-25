@@ -8,6 +8,8 @@ import { login as storeLogin } from '../store/authSlice'
 import { useDispatch } from 'react-redux';
 import Button1 from './Button1';
 import cross from '../assets/cross.svg';
+import { toast } from 'react-toastify';
+import { SmallLoader } from './util components/MinimalLoader';
 
 
 
@@ -41,14 +43,14 @@ const SignUp = () => {
 
     return (
         <div className="flex justify-center h-screen z-10 animate">
-            <div className={`mx-auto w-full max-w-lg h-3/4 bg-gray-950 rounded-lg p-10 border border-black/10 animate-[fadeIn_0.5s] overflow-y-auto mt-4 text-white`}>
+            <div className={`mx-auto w-full max-w-lg bg-gray-950 rounded-lg px-10 border border-black/10 animate-[fadeIn_0.5s] overflow-y-auto my-4 text-white`}>
                 <div className='flex justify-end'>
                     <Link to='/' className='flex justify-end'>
                         <img src={cross} className='w-4' alt="" />
                     </Link >
                 </div>
-                <h2 className="text-center text-3xl leading-tight">Sign up</h2>
-                <p className="my-2 text-center">
+                <h2 className="text-center text-3xl mb-2 bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 bg-clip-text text-transparent">Sign Up</h2>
+                <p className="mb-4 text-center text-xs">
                     Already have an account?&nbsp;
                     <Link
                         to="/login"
@@ -57,7 +59,7 @@ const SignUp = () => {
                         Log In
                     </Link>
                 </p>
-                {error && <p className="text-red-600 mt-8 text-center">{error}</p>}
+                {error && <p className="text-red-600 mt-8 text-center text-xs">{error}</p>}
 
                 <form onSubmit={handleSubmit(create)}>
                     <div className='space-y-8 mt-8'>
@@ -86,11 +88,15 @@ const SignUp = () => {
                                 required: true,
                             })}
                         />
-                        <button className='font-semibold px-6 py-3 bg-gray-950  text-white 
-                            rounded-lg transition-all duration-300 
-                            hover:bg-gray-900  flex items-center gap-2 border-2 focus:outline-none focus:ring-2 focus:ring-white' type="submit" disabled={loading} >
-                            Creat Account
-                            {loading ? <div className="h-6 w-6 border-4 border-blue-800 border-t-white rounded-full animate-spin"></div> : null}
+                        <button className='px-6 py-1
+                        bg-gray-950 text-white 
+                        rounded-full transition-all duration-300 
+                        hover:bg-gray-900  flex gap-2 border-2 border-blue-700 text-sm' type="submit" disabled={loading} >
+                            {loading
+                                ?
+                                <SmallLoader />
+                                : "Creat Account"
+                            }
                         </button>
                     </div>
                 </form>

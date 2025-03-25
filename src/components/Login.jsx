@@ -8,6 +8,8 @@ import { login as storeLogin } from '../store/authSlice';
 import authService from '../appwrite/auth'
 import { useMemo } from 'react'
 import cross from '../assets/cross.svg';
+import { SmallLoader } from './util components/MinimalLoader';
+import { toast } from 'react-toastify';
 
 
 
@@ -33,7 +35,7 @@ const Login = () => {
       if (session) {
         authService.getCurrentUser().then((userData) => {
           if (userData) dispatch(storeLogin(userData));
-          alert("You're logged in successfully")
+          toast.success("You're logged in successfully")
           navigate("/");
         });
       }
@@ -51,7 +53,7 @@ const Login = () => {
     console.log("rootUrl -", rootUrl, "resetUrl -", resetUrl);
     const email = watch("email");
     if (!email) {
-      alert("Please enter your email to reset password");
+      toast.warn("Please enter your email to reset password");
       return;
     }
     setLoading(true);
@@ -73,7 +75,7 @@ const Login = () => {
         authService.getCurrentUser().then((userData) => {
           if (userData) dispatch(storeLogin(userData));
           navigate("/");
-          alert("You're logged in successfully")
+          toast.success("You're logged in successfully")
         });
       }
     } catch (error) {
@@ -88,15 +90,15 @@ const Login = () => {
     <div
       className='flex justify-center h-screen z-10'
     >
-      <div className={`mx-auto w-full max-w-lg h-3/4 bg-gray-950 rounded-lg px-10 border border-black/10 animate-[fadeIn_1s] overflow-y-auto mt-4`}>
+      <div className={`mx-auto w-full max-w-lg bg-gray-950 rounded-lg px-10 border border-black/10 animate-[fadeIn_1s] overflow-y-auto my-4`}>
         <div className='flex justify-end'>
           <Link to='/' className='flex justify-end'>
-            <img src={cross} className='w-4 mt-4' alt="" />
+            <img src={cross} className='w-4 mt-1' alt="" />
           </Link >
         </div>
 
-        <h2 className="text-center text-3xl leading-tight">Log In</h2>
-        <p className="mt-2 text-center text-base">
+        <h2 className="text-center text-3xl mb-2 bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 bg-clip-text text-transparent">Log In</h2>
+        <p className="mb-4 text-center text-xs">
           Don&apos;t have any account?&nbsp;
           <Link
             to="/signup"
@@ -129,12 +131,12 @@ const Login = () => {
             />
             <div className="flex justify-between">
               <button
-                className='font-semibold px-6 py-3 bg-gray-950 text-white 
-          rounded-lg transition-all duration-300 
-          hover:bg-gray-900  flex items-center gap-2 border-2 focus:outline-none focus:ring-2 focus:ring-white'
+                className='px-6 py-1 bg-gray-950 text-white 
+          rounded-full transition-all duration-300 
+          hover:bg-gray-900  flex gap-2 border-2 border-blue-700 text-sm'
                 type="submit"
                 disabled={isSubmitting}
-              >Login <div className={`h-6 w-6 border-4 border-blue-800 border-t-white rounded-full animate-spin ${loading ? "opacity-100" : "opacity-0"}`}></div></button>
+              >{loading ? <SmallLoader /> : "Login"}</button>
               <span disabled={loading} className='text-xs hover:underline py-2 cursor-pointer ml-2 sm:ml-0' onClick={() => forgetPassword()}>
                 Forget Password?
               </span>
@@ -148,8 +150,7 @@ const Login = () => {
         </div>
 
         <div className="oauth my-4 flex flex-col gap-4 items-center">
-          {/* <button className='hover:ring-1 hover:ring-blue-700  w-72 py-3 text-gray-600 flex gap-2 justify-center items-center shadow-lg'><img className='w-8' src={FacebookLogo} alt="" />Continue With Facebook</button> */}
-          <button onClick={googleLogin} className='hover:ring-1 hover:ring-blue-700  w-72 py-3 flex gap-2 justify-center items-center shadow-xl border-2 rounded-lg hover:bg-gray-900 transition-all duration-300'><img className='w-8' src={GoogleLogo} alt="" />Continue With Google</button>
+          <button onClick={googleLogin} className='w-72 py-3 flex gap-2 justify-center items-center shadow-xl border-2 border-blue-700 rounded-full hover:scale-105 transition-all duration-300'><img className='w-8' src={GoogleLogo} alt="" />Continue With Google</button>
         </div>
 
       </div>

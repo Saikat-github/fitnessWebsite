@@ -22,6 +22,7 @@ export class AuthService {
             }
         } catch (error) {
             console.log("Appwrite auth service: signup error:", error)
+            throw error;
         }
     }
 
@@ -38,6 +39,7 @@ export class AuthService {
             return await this.account.get();
         } catch (error) {
             console.log("Appwrite service: getCurrentUser:", error);
+            throw error
         }
     }
 
@@ -46,6 +48,7 @@ export class AuthService {
             await this.account.deleteSessions();
         } catch (error) {
             console.log("Appwrite service: logut error", error);
+            throw error;
         }
     }
 
@@ -57,6 +60,7 @@ export class AuthService {
             console.log("Recovery email sent")
         } catch (error) {
             console.log(error.message);
+            throw error
         }
     }
 
@@ -66,6 +70,7 @@ export class AuthService {
             console.log('Password reset successful');
         } catch (error) {
             console.log(error.message);
+            throw error;
         }
     }
 

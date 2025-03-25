@@ -1,12 +1,15 @@
 import React, { useCallback, useEffect, useId, useState } from 'react'
 import { useForm } from 'react-hook-form';
-import arrowLeft from '../assets/arrow-left.svg'
-import arrowRight from '../assets/arrow-right.svg'
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import dbService from '../appwrite/data';
 import { addDetails } from '../store/authSlice';
 import { sendTelegramNotification } from '../conf/otherInfo.js'
+import { toast } from 'react-toastify';
+import { MoveRight, MoveLeft } from 'lucide-react';
+import { Button1, SmallLoader } from '../components/index.js';
+
+
 
 const FormInfo = () => {
     const [currQuestion, setCurrQuestion] = useState(0);
@@ -23,6 +26,7 @@ const FormInfo = () => {
 
     useEffect(() => {
         if (!userData) {
+            toast.warning("Please login to continue")
             navigate("/login")
             return;
         }
@@ -73,8 +77,8 @@ const FormInfo = () => {
         },
         {
             type: "input",
-            question: "What is your height (in feet)?",
-            name: "height"
+            question: "What is your height?",
+            name: "height(cm)"
         },
         {
             type: "button",
@@ -100,7 +104,7 @@ const FormInfo = () => {
             const formData = await dbService.createPost({ ...data, userId: userData.$id });
             if (formData) {
                 await sendTelegramNotification(data, "APPLICATION FOR PROGRAM");
-                alert("Form submitted succesfully");
+                toast.success("Form submitted succesfully");
                 dispatch(addDetails({ ...formData, email: userData.email }))
                 navigate("/account")
             }
@@ -121,7 +125,7 @@ const FormInfo = () => {
         if ((currQuestion !== questions.length - 1) && fieldValue) {
             setCurrQuestion((prev) => prev + 1)
         } else {
-            alert("Please answer the question to proceed")
+            toast.info("Please answer the question to proceed")
         }
     }, [currQuestion, questions])
 
@@ -139,8 +143,10 @@ const FormInfo = () => {
 
     //logic for btncliked
     const onBtnClicked = useCallback((value, question) => {
-        setValue(question.name, value);
-        setCurrQuestion(currQuestion + 1);
+        setTimeout(() => {
+            setValue(question.name, value);
+            setCurrQuestion(currQuestion + 1);
+        }, 300);
     }, [currQuestion, setValue]);
 
 
@@ -196,19 +202,19 @@ const FormInfo = () => {
                     {currQuestion > 0 && (
                         <button type="button" className="border sm:px-12  hover:scale-105 transition p-2 rounded flex flex-row-reverse gap-2" onClick={handlePrev}>
                             <span className='hidden sm:inline'>Previous</span>
-                            <img src={arrowLeft} className='w-6' alt="" />
+                            <MoveLeft className='w-6' />
                         </button>
                     )}
                     {currQuestion < questions.length - 1 && (
-                        <button type="button" className="border sm:px-12  hover:scale-105 transition p-2 rounded  bg-red-600 text-white flex  gap-2" onClick={handleNext}>
+                        <button type="button" className="sm:px-12  hover:scale-105 transition p-2 rounded  bg-red-600 text-white flex  gap-2" onClick={handleNext}>
                             <span className='hidden sm:inline'>Next</span>
-                            <img src={arrowRight} className='w-6' alt="" />
+                            <MoveRight className='w-6'/>
                         </button>
                     )}
                     {currQuestion === questions.length - 1 && (
-                        <button disabled={isSubmitting || userDetails} type="submit" className="flex gap-3 border sm:px-12  hover:scale-105 transition p-2 rounded  bg-green-500 text-white">
-                            <span>Submit</span> {loading ? <div className="h-6 w-6 border-4 border-t-blue-500 rounded-full animate-spin "></div> : null}
-                        </button>
+                        <Button1 disabled={isSubmitting || userDetails} type="submit" className="flex gap-3 sm:px-12  hover:scale-105 transition p-2 rounded text-white">
+                             {loading ? <SmallLoader /> : "Submit"}
+                        </Button1>
                     )}
                 </div>
             </form>

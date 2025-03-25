@@ -29,8 +29,10 @@ const PricingPage = () => {
   return (
     <div className="py-16 px-6">
       <div className="max-w-7xl mx-auto text-center text-white">
-        <h2 className="text-4xl font-bold mb-6">Our Pricing Plans</h2>
-        <p className="text-sm sm:text-lg mb-12">
+        <div>
+          <h2 className="text-4xl font-semibold mb-6 bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 bg-clip-text text-transparent">Our Pricing Plans</h2>
+        </div>
+        <p className="text-sm mb-12">
           Choose the plan that suits your fitness goal. We offer flexible pricing for muscle building, weight loss, body recomposition, and guaranteed results.
         </p>
 
