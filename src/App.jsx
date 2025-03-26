@@ -61,7 +61,7 @@ const App = () => {
     <div className='font-Montserrat bg-slate-950 text-white'>
       <ToastContainer position="top-right" autoClose={3000} />
       <Navbar />
-      <main className='min-h-screen'>
+      <main className='min-h-[200vh]'>
         <ScrollToTop />
         <Outlet />
       </main>

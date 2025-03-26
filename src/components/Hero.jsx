@@ -17,12 +17,12 @@ const Hero = () => {
         <img src={banner2} className='w-full md:w-1/2 opacity-80' alt="" />
 
       <div className="hero-right px-10 md:my-auto my-20 space-y-8 ">
-        <div className=' text-4xl xs:text-6xl bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 bg-clip-text text-transparent'>
+        <div className=' text-4xl font-medium xs:text-6xl bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 bg-clip-text text-transparent'>
           <hr className='border-0 w-20 h-2 bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 mb-6' />
           Learn the Luxury of Being Fit
         </div>
 
-        <div className='text-2xl xs:text-3xl flex gap-6'>
+        <div className='text-2xl xs:text-3xl flex gap-6 max-sm:mb-6'>
           <hr className='border-0 w-1 h-10 bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 ' />
           By Saikat Saha
         </div>

@@ -41,44 +41,52 @@ const FormInfo = () => {
             type: "button",
             question: <p><span className='text-red-600'>*</span>What is your primary fitness goal?</p>,
             options: ["Lose Fat", 'Build Muscle', "Body Recomposition (Build Muscle & Lose Fat)", "Health & Longevity"],
-            name: "applicantGoal"
+            name: "applicantGoal",
+            required: true
         },
         {
             type: "button",
             question: <p><span className='text-red-600'>*</span>What is your gender?</p>,
             options: ["Male", "Female", "Other", "Prefer not to answer"],
-            name: "applicantGender"
+            name: "applicantGender",
+            required: true
         },
         {
             type: "button",
             question: <p><span className='text-red-600'>*</span>This application is for paid 1:1 coaching (including personalized nutrition, workouts, weekly check-ins & WhatsApp chat with me) do you want to continue?</p>,
             options: ["Yes", "No cancel my application"],
-            name: "agreedToContinue"
+            name: "agreedToContinue",
+            required: true
         },
         {
             type: 'input',
             question: <p><span className='text-red-600'>*</span>Your Name</p>,
-            name: "applicantName"
+            name: "applicantName",
+            required: true
         },
         {
             type: "input",
             question: <p><span className='text-red-600'>*</span>What is your phone number?</p>,
-            name: "phoneNo"
+            name: "phoneNo",
+            required: true
         },
         {
             type: "input",
             question: <p><span className='text-red-600'>*</span>How old are you? My coaching is for 18+</p>,
-            name: "applicantAge"
+            name: "applicantAge",
+            required: true
         },
         {
             type: "input",
             question: "What is your weight in kg?",
-            name: "weight"
+            name: "weight",
+            required: true
         },
         {
             type: "input",
-            question: "What is your height?",
-            name: "height(cm)"
+            question: "What is your height?(in centimeters)",
+            name: "height",
+            required: true
         },
         {
             type: "button",
@@ -88,8 +96,9 @@ const FormInfo = () => {
         },
         {
             type: "input",
-            question: <p><span className='text-red-600'>*</span>Name of your gym <br /><span className='text-xs'>(If you're not a member of any gym write N/A)</span></p>,
+            question: <p>Name of your gym <br /><span className='text-xs'>(Optional)</span></p>,
             name: "gymName",
+            required: false
         }
     ];
 
@@ -98,10 +107,12 @@ const FormInfo = () => {
 
     //form submission logic
     const onSubmit = async (data) => {
+        console.log(data);
         setError(null);
         setLoading(true);
         try {
             const formData = await dbService.createPost({ ...data, userId: userData.$id });
+            console.log("formdata", formData);
             if (formData) {
                 await sendTelegramNotification(data, "APPLICATION FOR PROGRAM");
                 toast.success("Form submitted succesfully");
@@ -161,7 +172,7 @@ const FormInfo = () => {
                     <input
                         placeholder={question.name}
                         type='text'
-                        {...register(question.name, { required: true })}
+                        {...register(question.name, { required: question.required })}
                         className='text-black px-10 py-2 border border-black rounded-full outline-none lg:w-[70vh] xl:w-[80vh]'
                     />
                 ) : (

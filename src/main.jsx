@@ -13,6 +13,9 @@ import store from './store/store.js'
 import Account from './pages/Account.jsx'
 import ResetPassword from './components/ResetPassword.jsx'
 import FreeSession from './pages/FreeSession.jsx'
+import { PrivacyPolicy } from './pages/index.js'
+import TermsAndCondition from './pages/legal/TermsAndCondition.jsx'
+
 
 
 const router = createBrowserRouter([
@@ -51,6 +54,14 @@ const router = createBrowserRouter([
       {
         path: "/resetPassword",
         element: <ResetPassword />
+      },
+      {
+        path: "/terms",
+        element: <TermsAndCondition />
+      },
+      {
+        path: '/privacy',
+        element: <PrivacyPolicy />
       }
     ]
   }
