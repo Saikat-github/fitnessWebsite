@@ -108,7 +108,7 @@ const FreeSession = () => {
           <button
             disabled={isSubmitting}
             type="submit"
-            className="flex gap-2 justify-center text-white py-2 px-4 rounded-full transition-all duration-500 border-2 border-blue-700 w-48 mx-auto"
+            className="flex gap-2 justify-center text-white py-2 px-4 rounded-full transition-all duration-500 w-48 mx-auto border-2"
           >
             Submit {loader ? <span className='w-6 h-6 border-4 rounded-full animate-spin border-dotted'></span> : null}
           </button>

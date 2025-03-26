@@ -65,7 +65,7 @@ const UserInfo = ({ userId }) => {
           </p>
           <p className="space-x-6">
             <span><strong className="">Weight:</strong> {userDetails.weight} kg</span>
-            <span><strong className="">Height:</strong> {userDetails.height} ft</span>
+            <span><strong className="">Height:</strong> {userDetails.height} cm</span>
           </p>
 
           <p><strong className="">Plan Chosen:</strong> {userDetails.planChoosen}</p>

@@ -91,7 +91,7 @@ const SignUp = () => {
                         <button className='px-6 py-1
                         bg-gray-950 text-white 
                         rounded-full transition-all duration-300 
-                        hover:bg-gray-900  flex gap-2 border-2 border-blue-700 text-sm' type="submit" disabled={loading} >
+                        hover:bg-gray-900  flex gap-2 border-2  text-sm' type="submit" disabled={loading} >
                             {loading
                                 ?
                                 <SmallLoader />

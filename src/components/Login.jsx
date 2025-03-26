@@ -133,7 +133,7 @@ const Login = () => {
               <button
                 className='px-6 py-1 bg-gray-950 text-white 
           rounded-full transition-all duration-300 
-          hover:bg-gray-900  flex gap-2 border-2 border-blue-700 text-sm'
+          hover:bg-gray-900  flex gap-2 border-2 text-sm'
                 type="submit"
                 disabled={isSubmitting}
               >{loading ? <SmallLoader /> : "Login"}</button>
@@ -150,7 +150,7 @@ const Login = () => {
         </div>
 
         <div className="oauth my-4 flex flex-col gap-4 items-center">
-          <button onClick={googleLogin} className='w-72 py-3 flex gap-2 justify-center items-center shadow-xl border-2 border-blue-700 rounded-full hover:scale-105 transition-all duration-300'><img className='w-8' src={GoogleLogo} alt="" />Continue With Google</button>
+          <button onClick={googleLogin} className='w-72 py-3 flex gap-2 justify-center items-center shadow-xl border-2 rounded-full hover:scale-105 transition-all duration-300'><img className='w-8' src={GoogleLogo} alt="" />Continue With Google</button>
         </div>
 
       </div>
