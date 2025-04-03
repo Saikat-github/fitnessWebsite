@@ -13,8 +13,6 @@ import { toast } from 'react-toastify';
 
 
 
-
-
 const Login = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -58,7 +56,8 @@ const Login = () => {
     }
     setLoading(true);
     authService.sendPasswordRecoveryEmail(email, resetUrl)
-      .then(() => alert("Reset email sent to your email"))
+      .then(() => toast.success("Reset email sent to your email"))
+      .catch((error) => toast.error(error.message))
       .finally(() => setLoading(false));
   }, [watch, resetUrl]);
 
@@ -67,15 +66,16 @@ const Login = () => {
   // google login logic
 
   const googleLogin = useCallback(async () => {
-    console.log("google login was clicked")
     setLoading(true);
     try {
       const session = await authService.googleAuth(rootUrl);
+      console.log(session);
+      console.log(rootUrl);
       if (session) {
         authService.getCurrentUser().then((userData) => {
           if (userData) dispatch(storeLogin(userData));
-          navigate("/");
           toast.success("You're logged in successfully")
+          navigate("/");
         });
       }
     } catch (error) {

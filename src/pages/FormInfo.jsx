@@ -4,12 +4,13 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import dbService from '../appwrite/data';
 import { addDetails } from '../store/authSlice';
-import { sendTelegramNotification } from '../conf/otherInfo.js'
 import { toast } from 'react-toastify';
 import { MoveRight, MoveLeft } from 'lucide-react';
 import { Button1, SmallLoader } from '../components/index.js';
 
-
+const handleRedirect = () => {
+    window.open('/pricing', '_blank');
+};
 
 const FormInfo = () => {
     const [currQuestion, setCurrQuestion] = useState(0);
@@ -21,6 +22,7 @@ const FormInfo = () => {
     const userData = useSelector((state) => state.auth.userData);
     const userDetails = useSelector((state) => state.auth.userDetails);
     const dispatch = useDispatch();
+    console.log("userdata", userData)
 
 
 
@@ -32,9 +34,6 @@ const FormInfo = () => {
         }
     }, [])
 
-    const handleRedirect = () => {
-        window.open('/pricing', '_blank');
-    };
 
     const questions = [
         {
@@ -111,10 +110,9 @@ const FormInfo = () => {
         setError(null);
         setLoading(true);
         try {
-            const formData = await dbService.createPost({ ...data, userId: userData.$id });
+            const formData = await dbService.createPost({ ...data, userId: userData.$id, email: userData.email });
             console.log("formdata", formData);
             if (formData) {
-                await sendTelegramNotification(data, "APPLICATION FOR PROGRAM");
                 toast.success("Form submitted succesfully");
                 dispatch(addDetails({ ...formData, email: userData.email }))
                 navigate("/account")

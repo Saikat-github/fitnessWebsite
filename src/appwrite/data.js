@@ -1,4 +1,4 @@
-import { Client, Account, ID, Databases, Storage, Query } from "appwrite";
+import { Client, Databases, Storage, ID } from "appwrite";
 import conf from "../conf/conf";
 
 export class DbService {
@@ -14,11 +14,11 @@ export class DbService {
         this.storage = new Storage(this.client);
     }
 
-    async createPost({applicantGoal, applicantAge, applicantGender, agreedToContinue, planChoosen, applicantName, phoneNo, email, instaID, userId, weight, height}) {
+    async createPost({applicantGoal, applicantAge, applicantGender, agreedToContinue, planChoosen, applicantName, phoneNo, email, instaID, userId, weight, height, gymName}) {
         try {
             return await this.databases.createDocument(
                 conf.appwriteDatabaseId,
-                conf.appwriteCollectionId,
+                conf.appwriteFormCollectionId,
                 userId,
                 {
                     applicantGoal, 
@@ -32,7 +32,8 @@ export class DbService {
                     instaID, 
                     userId,
                     weight,
-                    height
+                    height, 
+                    gymName
                 }
             )
         } catch (error) {
@@ -45,7 +46,7 @@ export class DbService {
         try {
             await this.databases.deleteDocument(
                 conf.appwriteDatabaseId,
-                conf.appwriteCollectionId,
+                conf.appwriteFormCollectionId,
                 id
             )
             return true;
@@ -59,7 +60,7 @@ export class DbService {
         try {
             return await this.databases.getDocument(
                 conf.appwriteDatabaseId,
-                conf.appwriteCollectionId,
+                conf.appwriteFormCollectionId,
                 id
             )
         } catch (error) {
@@ -68,7 +69,28 @@ export class DbService {
         }
     }
 
+    //Free Session
+    async createFreeSession({name, phoneNo, preferredTime}) {
+        console.log(name, phoneNo, preferredTime)
+        try {
+            return await this.databases.createDocument(
+                conf.appwriteDatabaseId,
+                conf.appwriteFreeSessionCollectionId,
+                ID.unique(),
+                {
+                    name, phoneNo, preferredTime
+                }
+            )
+        } catch (error) {
+            console.log("Appwrite database error:createPost:", error)
+            throw error
+        }
+    }
+
 };
+
+
+
 
 
 const dbService = new DbService();

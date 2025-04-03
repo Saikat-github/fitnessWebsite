@@ -10,19 +10,16 @@ const PricingPage = () => {
       title: "Guaranteed: Lose 5-10 kg in 6 weeks",
       price: "₹ 1,999/month",
       features: ["30 days Money-back guarantee", "Customized diet & workout", "Progress monitoring & intensive coaching", "24/7 Support"],
-      cta: "Start Your Journey",
     },
     {
       title: "Body Recomposition",
       price: "₹ 1,999/month",
       features: ["30 days Money-back guarantee", "Combined muscle gain & fat loss", "Diet and training plans", "Weekly check-ins & 24/7 Support"],
-      cta: "Transform Now",
     },
     {
       title: "Muscle Building",
       price: "₹ 1,599/month",
       features: ["Personalized workout plans", "Diet consultation", "Weekly check-ins", "24/7 Support"],
-      cta: "Get Started",
     },
   ];
 
@@ -44,7 +41,7 @@ const PricingPage = () => {
                 <p className="mt-4 text-3xl font-bold text-blue-600">{plan.price}</p>
                 <ul className="mt-6 text-white space-y-3">
                   {plan.features.map((feature, index) => (
-                    <li key={index} className="flex items-center">
+                    <li key={index} className="flex">
                       <svg
                         className="w-5 h-5 text-green-500 mr-2"
                         fill="none"
@@ -65,9 +62,6 @@ const PricingPage = () => {
                 </ul>
               </div>
               <div className="bg-gray-900 bg-opacity-40 px-6 py-4">
-                <button onClick={() => navigate("/input")} className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition duration-300">
-                  {plan.cta}
-                </button>
               </div>
             </div>
           ))}

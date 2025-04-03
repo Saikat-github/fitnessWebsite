@@ -16,13 +16,19 @@ const LogoutBtn = ({setShowBar}) => {
   const navigate = useNavigate();
 
   const logout =  async () => {
-    setLoading(true);
-    await authService.logout()
-    dispatch(storeLogout());
-    setShowBar(false)
-    toast.success("You're logged out successfully")
-    navigate("/")
-    setLoading(false);
+    try {
+      setLoading(true);
+      await authService.logout()
+      dispatch(storeLogout());
+      setShowBar(false)
+      toast.success("You're logged out successfully")
+      navigate("/")
+      setLoading(false);
+    } catch (error) {
+      toast.error("An error occurred while logging out")
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { Instagram, Twitter, Facebook } from "lucide-react";
+import { Instagram, Twitter, Facebook, UserCog } from "lucide-react";
 import Button1 from './Button1';
 
 const Footer = () => {
@@ -26,16 +26,47 @@ const Footer = () => {
           </div>
           <p className='text-xs sm:text-sm'>Call : +91 9635473546</p>
           <p className='text-xs sm:text-sm'>saikatservices@gmail.com</p>
+          <p>
+            <a
+              href="https://fitness-website-admin.vercel.app/"
+              className='text-xs sm:text-sm text-blue-600'
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Go to Admin Panel
+            </a>
+          </p>
         </div>
+
+
         <div className="footer-social space-y-4">
           <div className='flex gap-2'>
             <hr className='border-0 w-1 h-10 bg-gradient-to-b from-purple-600 via-pink-600 to-red-600' />
             <h1 className='font-semibold'>Follow Me</h1>
           </div>
           <div className='flex gap-12'>
-            <a href=""><Facebook className="w-6 h-6 hover:scale-105 transition duration-200 text-blue-600" /></a>
-            <a href="https://x.com/Saikaatsaha"><Twitter className="w-6 h-6 hover:scale-105 transition duration-200 text-blue-400" /></a>
-            <a href="https://www.instagram.com/saikaatsaha/"><Instagram className="w-6 h-6 hover:scale-105 transition duration-200 text-pink-500" /></a>
+            <a
+              href=""
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Facebook className="w-6 h-6 hover:scale-105 transition duration-200 text-blue-600" />
+            </a>
+            <a
+              href="https://x.com/Saikaatsaha"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Twitter className="w-6 h-6 hover:scale-105 transition duration-200 text-blue-400" />
+            </a>
+            <a
+              href="https://www.instagram.com/saikaatsaha/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Instagram className="w-6 h-6 hover:scale-105 transition duration-200 text-pink-500" />
+            </a>
+
           </div>
         </div>
       </div>
