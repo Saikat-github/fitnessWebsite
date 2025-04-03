@@ -28,7 +28,7 @@ const Footer = () => {
           <p className='text-xs sm:text-sm'>saikatservices@gmail.com</p>
           <p>
             <a
-              href="https://fitness-website-admin.vercel.app/"
+              href="https://fitness-website-admin.vercel.app/login"
               className='text-xs sm:text-sm text-blue-600'
               target="_blank"
               rel="noopener noreferrer"
