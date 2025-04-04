@@ -71,7 +71,7 @@ export class AuthService {
 
     async googleAuth (rootUrl) {
         try {
-            return await this.account.createOAuth2Session('google', rootUrl, `${rootUrl}/login`);
+            return await this.account.createOAuth2Session('google', rootUrl, rootUrl);
         } catch (error) {
             throw error;
         }
