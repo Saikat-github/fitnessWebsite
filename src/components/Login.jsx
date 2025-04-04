@@ -64,17 +64,13 @@ const Login = () => {
 
 
   // google login logic
-
   const googleLogin = useCallback(async () => {
     setLoading(true);
     try {
       const session = await authService.googleAuth(rootUrl);
-      console.log(session);
-      console.log(rootUrl);
       if (session) {
         authService.getCurrentUser().then((userData) => {
           if (userData) dispatch(storeLogin(userData));
-          toast.success("You're logged in successfully")
           navigate("/");
         });
       }
@@ -108,6 +104,17 @@ const Login = () => {
           </Link>
         </p>
         {error && <p className="text-red-600 text-center">{error}</p>}
+
+        <div className="oauth my-6 flex flex-col gap-4 items-center">
+          <button onClick={googleLogin} className='w-72 py-3 flex gap-2 justify-center items-center shadow-xl border-2 rounded-full hover:scale-105 transition-all duration-300'><img className='w-8' src={GoogleLogo} alt="" />Continue With Google</button>
+        </div>
+
+        <div className='my-6 flex gap-4 items-center'>
+          <hr className='bg-gray-400 h-0.5 border-0 flex-grow' />
+          <span className="mx-2">Or</span>
+          <hr className='bg-gray-400 h-0.5 border-0 flex-grow' />
+        </div>
+
         <form onSubmit={handleSubmit(login)} className='mt-8'>
           <div className='space-y-8'>
             <Input
@@ -143,16 +150,6 @@ const Login = () => {
             </div>
           </div>
         </form>
-        <div className='my-6 flex gap-4 items-center'>
-          <hr className='bg-gray-400 h-0.5 border-0 flex-grow' />
-          <span className="mx-2">Or</span>
-          <hr className='bg-gray-400 h-0.5 border-0 flex-grow' />
-        </div>
-
-        <div className="oauth my-4 flex flex-col gap-4 items-center">
-          <button onClick={googleLogin} className='w-72 py-3 flex gap-2 justify-center items-center shadow-xl border-2 rounded-full hover:scale-105 transition-all duration-300'><img className='w-8' src={GoogleLogo} alt="" />Continue With Google</button>
-        </div>
-
       </div>
     </div>
   )

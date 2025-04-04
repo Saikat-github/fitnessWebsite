@@ -9,4 +9,5 @@ import TermsAndCondition from "./legal/TermsAndCondition";
 import PrivacyPolicy from "./legal/PrivacyPolicy";
 
 
+
 export {Home, Account, Login, PricingPage, FormInfo, SignUp, FreeSession, PrivacyPolicy };

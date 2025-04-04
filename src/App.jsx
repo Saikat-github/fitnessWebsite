@@ -30,7 +30,6 @@ const App = () => {
         dispatch(addDetails(data));
       })
       .catch((error) => {
-        console.log(error);
         dispatch(removeDetails())
       })
       .finally(() => {

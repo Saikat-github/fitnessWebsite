@@ -18,8 +18,8 @@ import StarryNight from "./util components/StarryNight";
 import CTAButtons from "./CTAButtons";
 import {MinimalLoader, SmallLoader} from "./util components/MinimalLoader";
 import ConfirmationModal from "./util components/ConfirmationModal";
+import ProtectedRoutes from "./ProtectedRoutes";
 
 
 
-
-export {Navbar, Footer, Login, Hero, LogoutBtn, SignUp, Input, Section, Card, DetailsPane, CTA, UserInfo, ScrollToTop, ResetPassword, Button1, Button2, StarryNight, CTAButtons, MinimalLoader, SmallLoader, ConfirmationModal};
+export {Navbar, Footer, Login, Hero, LogoutBtn, SignUp, Input, Section, Card, DetailsPane, CTA, UserInfo, ScrollToTop, ResetPassword, Button1, Button2, StarryNight, CTAButtons, MinimalLoader, SmallLoader, ConfirmationModal, ProtectedRoutes};

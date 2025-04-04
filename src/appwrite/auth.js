@@ -12,6 +12,7 @@ export class AuthService {
         this.account = new Account(this.client);
     }
 
+
     async createAccount({email, password, name}) {
         try {
             const userAccount = await this.account.create(ID.unique(), email, password, name);
@@ -38,7 +39,6 @@ export class AuthService {
         try {
             return await this.account.get();
         } catch (error) {
-            console.log("Appwrite service: getCurrentUser:", error);
             throw error
         }
     }
@@ -47,7 +47,6 @@ export class AuthService {
         try {
             await this.account.deleteSessions();
         } catch (error) {
-            console.log("Appwrite service: logut error", error);
             throw error;
         }
     }
@@ -57,9 +56,7 @@ export class AuthService {
             await this.account.createRecovery(
                 email, url
             )
-            console.log("Recovery email sent")
         } catch (error) {
-            console.log(error.message);
             throw error
         }
     }
@@ -67,16 +64,14 @@ export class AuthService {
     async resetPassword (userId, secret, newPassword) {
         try {
             await this.account.updateRecovery(userId, secret, newPassword, newPassword);
-            console.log('Password reset successful');
         } catch (error) {
-            console.log(error.message);
             throw error;
         }
     }
 
     async googleAuth (rootUrl) {
         try {
-            return await this.account.createOAuth2Session('google', rootUrl, rootUrl);
+            return await this.account.createOAuth2Session('google', rootUrl, `${rootUrl}/login`);
         } catch (error) {
             throw error;
         }

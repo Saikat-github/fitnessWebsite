@@ -15,6 +15,7 @@ import ResetPassword from './components/ResetPassword.jsx'
 import FreeSession from './pages/FreeSession.jsx'
 import { PrivacyPolicy } from './pages/index.js'
 import TermsAndCondition from './pages/legal/TermsAndCondition.jsx'
+import ProtectedRoutes from './components/ProtectedRoutes.jsx'
 
 
 
@@ -41,7 +42,9 @@ const router = createBrowserRouter([
       },
       {
         path: "/input",
-        element: <FormInfo />
+        element: <ProtectedRoutes>
+          <FormInfo />
+        </ProtectedRoutes>
       },
       {
         path: "/input-freesession",
@@ -49,7 +52,9 @@ const router = createBrowserRouter([
       },
       {
         path: "/account",
-        element: <Account />
+        element: <ProtectedRoutes>
+          <Account />
+        </ProtectedRoutes>
       },
       {
         path: "/resetPassword",

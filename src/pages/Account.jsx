@@ -5,7 +5,6 @@ import { useSelector } from 'react-redux'
 
 const Account = () => {
   const userData = useSelector((state) => state.auth.userData);
-  
 
   return userData ? (
     <div>

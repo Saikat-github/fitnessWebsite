@@ -64,7 +64,6 @@ export class DbService {
                 id
             )
         } catch (error) {
-            console.log("Appwrite database error: getDocument:", error);
             throw error            
         }
     }

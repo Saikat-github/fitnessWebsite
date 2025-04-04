@@ -21,18 +21,7 @@ const FormInfo = () => {
     const navigate = useNavigate();
     const userData = useSelector((state) => state.auth.userData);
     const userDetails = useSelector((state) => state.auth.userDetails);
-    const dispatch = useDispatch();
-    console.log("userdata", userData)
-
-
-
-    useEffect(() => {
-        if (!userData) {
-            toast.warning("Please login to continue")
-            navigate("/login")
-            return;
-        }
-    }, [])
+    const dispatch = useDispatch()
 
 
     const questions = [
