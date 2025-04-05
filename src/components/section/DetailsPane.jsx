@@ -1,5 +1,5 @@
 import React from 'react'
-import formimage1 from '../../assets/myimage1.jpg'
+import formimage1 from '../../assets/myimage1.png'
 import formimage2 from '../../assets/myimage2.png'
 import formimage3 from '../../assets/myimage3.png'
 
@@ -10,9 +10,9 @@ const DetailsPane = () => {
             <h2 className='text-4xl font-medium mb-8 text-center bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 bg-clip-text text-transparent'>This is My Story</h2>
             <div className='flex gap-8 md:px-20 px-5 md:flex-row flex-col'>
                 <img src={formimage3} className='max-w-md object-contain rounded-lg' alt="" />
-                <img src={formimage2} className='max-w-md object-contain rounded-lg' alt="" />
+                <img src={formimage1} className='max-w-md object-contain rounded-lg' alt="" />
                 <div className="details space-y-4">
-                    <h2 className='text-2xl font-semibold'>I'M SAIKAT SAHA</h2>
+                    <h2 className='text-2xl font-semibold'>I'M ARGHYA SAHA</h2>
                     <p className='text-xs '>
                         <span className='font-bold'>I wasn’t born with a great physique</span>, and from a young age, I wasn’t happy with how I looked. Growing up skinny, it always bothered me, and in my teenage years, I decided to do something about it. I wanted to build a body that I could feel confident about and be proud of. Over the past 2.5 years, I’ve dedicated myself to learning everything I could about fitness and health, and along the way, I fell in love with the process.
                     </p>

@@ -48,7 +48,6 @@ const Login = () => {
 
   //forget password logic
   const forgetPassword = useCallback(() => {
-    console.log("rootUrl -", rootUrl, "resetUrl -", resetUrl);
     const email = watch("email");
     if (!email) {
       toast.warn("Please enter your email to reset password");
