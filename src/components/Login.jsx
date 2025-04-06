@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import Input from './Input'
 import { useForm } from 'react-hook-form'
 import GoogleLogo from '../assets/google2.svg';
@@ -18,6 +18,9 @@ const Login = () => {
   const [error, setError] = useState("");
   const rootUrl = window.location.origin;
   const resetUrl = useMemo(() => `${rootUrl}/resetPassword`, []);
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || '/';
 
   const { register, handleSubmit, watch, formState: { isSubmitting }, reset } = useForm();
   const navigate = useNavigate();
@@ -34,7 +37,7 @@ const Login = () => {
         authService.getCurrentUser().then((userData) => {
           if (userData) dispatch(storeLogin(userData));
           toast.success("You're logged in successfully")
-          navigate("/");
+          navigate(from, { replace: true });
         });
       }
     } catch (error) {
@@ -66,13 +69,7 @@ const Login = () => {
   const googleLogin = useCallback(async () => {
     setLoading(true);
     try {
-      const session = await authService.googleAuth(rootUrl);
-      if (session) {
-        authService.getCurrentUser().then((userData) => {
-          if (userData) dispatch(storeLogin(userData));
-          navigate("/");
-        });
-      }
+      await authService.googleAuth(rootUrl);
     } catch (error) {
       setError(error.message);
     } finally {
