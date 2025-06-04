@@ -24,7 +24,7 @@ const Hero = () => {
 
         <div className='text-2xl xs:text-3xl flex gap-6 max-sm:mb-6'>
           <hr className='border-0 w-1 h-10 bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 ' />
-          By Arghya Saha
+          By Saikat Saha
         </div>
 
         <CTAButtons />

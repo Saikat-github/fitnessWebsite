@@ -72,7 +72,7 @@ const Footer = () => {
       </div>
 
       <div className="footer-third md:py-10 text-xs text-center space-y-4">
-        <p>&copy; 2025 zerodiet.in All Rights Reserved.</p>
+        <p>&copy; {new Date().getFullYear()} zerodiet.in All Rights Reserved.</p>
         <div className="details-terms flex gap-8 justify-center ">
           <Link className='hover:underline' to="/privacy">Privacy Policy</Link>
           <Link className='hover:underline' to="/terms" >Terms of Services</Link>
