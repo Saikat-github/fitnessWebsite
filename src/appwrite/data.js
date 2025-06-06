@@ -70,7 +70,6 @@ export class DbService {
 
     //Free Session
     async createFreeSession({name, phoneNo, preferredTime}) {
-        console.log(name, phoneNo, preferredTime)
         try {
             return await this.databases.createDocument(
                 conf.appwriteDatabaseId,
