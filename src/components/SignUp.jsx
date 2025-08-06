@@ -68,7 +68,7 @@ const SignUp = () => {
                         <img src={cross} className='w-4' alt="" />
                     </Link >
                 </div>
-                <h2 className="text-center text-3xl mb-2">Sign Up</h2>
+                <h2 className="text-center text-3xl mb-2 font-semibold">Sign Up</h2>
                 <p className="mb-4 text-center text-xs">
                     Already have an account?&nbsp;
                     <Link

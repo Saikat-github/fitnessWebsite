@@ -1,15 +1,28 @@
 import React from 'react'
-import formimage1 from '../../assets/myimage1.webp'
-import formimage3 from '../../assets/myimage3.webp'
+import myImage1 from '../../assets/myimage1.webp'
+import myImage2 from '../../assets/myimage2.webp'
+import myImage3 from '../../assets/myimage3.webp'
+import myImage4 from '../../assets/myimage4.webp'
+import { ArrowDown, ArrowRight } from 'lucide-react'
 
 
 const DetailsPane = () => {
     return (
-        <div className='py-20 '>
-            <h2 className='text-4xl font-medium mb-8 text-center'>This is My Story</h2>
-            <div className='flex gap-8 md:px-20 px-5 lg:flex-row flex-col justify-center items-center'>
-                <img src={formimage3} className='max-w-md object-contain rounded-lg max-sm:w-60' alt="" />
-                <img src={formimage1} className='max-w-md object-contain rounded-lg max-sm:w-60' alt="" />
+        <div className='py-20'>
+            <h2 className='text-4xl font-medium mb-12 text-center'>This is My Story</h2>
+            <div className='flex gap-12 md:gap-20 md:px-20 px-5 flex-col justify-center items-center'>
+                <div className='flex flex-col md:flex-row justify-center items-center gap-2 md:gap-10'>
+                    <img src={myImage3} className='max-w-md object-contain rounded-lg max-sm:w-60 h-80' alt="" />
+                    <ArrowDown className='md:hidden'/>
+                    <ArrowRight className='max-md:hidden'/>
+                    <img src={myImage4} className='max-w-md object-contain rounded-lg max-sm:w-60 h-80' alt="" />
+                </div>
+                <div className='flex flex-col md:flex-row justify-center items-center gap-2 md:gap-10'>
+                    <img src={myImage1} className='max-w-md object-contain rounded-lg max-sm:w-60 h-[500px]' alt="" />
+                    <ArrowDown className='md:hidden'/>
+                    <ArrowRight className='max-md:hidden'/>
+                    <img src={myImage2} className='max-w-md object-contain rounded-lg max-sm:w-60 h-[500px]' alt="" />
+                </div>
                 <div className="details space-y-4">
                     <h2 className='text-xl font-semibold'>I'M SAIKAT SAHA</h2>
                     <p className='text-xs '>
