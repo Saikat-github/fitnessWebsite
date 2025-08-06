@@ -58,7 +58,7 @@ const App = () => {
 
 
   return !authLoading ? (
-    <div className='font-Poppins bg-slate-950 text-gray-200'>
+    <div className='font-Poppins bg-slate-950 text-gray-300'>
       <ToastContainer position="top-right" autoClose={3000} />
       <Navbar />
       <main className='min-h-[200vh]'>

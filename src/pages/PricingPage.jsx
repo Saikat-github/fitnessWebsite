@@ -25,7 +25,7 @@ const PricingPage = () => {
 
   return (
     <div className="py-16 px-6">
-      <div className="max-w-7xl mx-auto text-center text-white">
+      <div className="max-w-7xl mx-auto text-center">
         <div>
           <h2 className="text-4xl font-semibold mb-6">Our Pricing Plans</h2>
         </div>
@@ -37,9 +37,9 @@ const PricingPage = () => {
           {pricingPlans.map((plan) => (
             <div key={plan.title} className="bg-black/50 shadow-lg rounded-lg">
               <div className="px-6 py-8">
-                <h3 className="text-xl font-semibold text-white">{plan.title}</h3>
+                <h3 className="text-xl font-semibold">{plan.title}</h3>
                 <p className="mt-4 text-3xl font-bold text-blue-600">{plan.price}</p>
-                <ul className="mt-6 text-white space-y-3">
+                <ul className="mt-6 space-y-3">
                   {plan.features.map((feature, index) => (
                     <li key={index} className="flex">
                       <svg

@@ -16,10 +16,10 @@ const CTA = () => {
         <div className='flex flex-col gap-6 items-center py-20'>
             {/* <h1 className='text-[#0f0671]  text-2xl text-center'>SAIKATSAHA FITNESS</h1> */}
             {/* <img src="../logo5.png" className='w-28' alt="" /> */}
-            <h2 className='text-4xl font-medium lg:w-1/2 text-center'>Personalized Training</h2>
+            <h2 className='text-4xl font-medium lg:w-1/2 text-center px-2'>Personalized Training</h2>
             <h3 className='  text-lg md:text-2xl'>If you want to</h3>
-            <div className="info my-10 flex flex-wrap gap-12 justify-center">
-                <div className='space-y-12'>
+            <div className="info my-10 flex flex-wrap gap-20 justify-center">
+                <div className='space-y-14 md:space-y-20'>
                     <Card h1="Lose Fat" h2="Effective workouts, calorie control">
                         <Flame className='w-6' />
                     </Card>
@@ -27,7 +27,7 @@ const CTA = () => {
                         <Dumbbell className='w-6' />
                     </Card>
                 </div>
-                <div className='space-y-12'>
+                <div className='space-y-14 md:space-y-20'>
                     <Card h1="Body Remcomposition" h2="Build muscles & lose fat">
                         <Repeat className='w-6' />
                     </Card>

@@ -82,7 +82,7 @@ const Login = () => {
     <div
       className='flex justify-center h-screen z-10'
     >
-      <div className={`mx-auto w-full max-w-lg bg-black/50 rounded-lg px-10 border border-black/10 animate-[fadeIn_1s] overflow-y-auto my-4`}>
+      <div className={`mx-auto w-full max-w-lg bg-black/50 rounded-lg px-10 my-4`}>
         <div className='flex justify-end'>
           <Link to='/' className='flex justify-end'>
             <img src={cross} className='w-4 mt-1' alt="" />
@@ -134,7 +134,7 @@ const Login = () => {
             />
             <div className="flex justify-between">
               <button
-                className='px-6 py-1 text-white 
+                className='px-6 py-1 
           rounded-full transition-all duration-300 
           hover:bg-gray-900  flex gap-2 border text-sm'
                 type="submit"

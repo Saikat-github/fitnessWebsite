@@ -48,7 +48,7 @@ const UserInfo = ({ userId }) => {
 
 
   return userDetails ? (
-    <div className="flex flex-col gap-6 pt-2 items-center min-h-screen text-slate-50">
+    <div className="flex flex-col gap-6 pt-2 items-center min-h-screen">
       <div className="bg-black/50 shadow-lg rounded-lg px-8 py-2 w-full max-w-md">
         Thank You for choosing us, we'll contact you in 24 hours
       </div>

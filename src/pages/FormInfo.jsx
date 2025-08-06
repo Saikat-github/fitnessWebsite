@@ -168,7 +168,7 @@ const FormInfo = () => {
                             <button
                                 type="button"
                                 key={i}
-                                className={`px-10 py-4 border border-white rounded-full sm:w-80 w-64 text-sm transition-all duration-500 ${watch(question.name) === option ? "bg-red-700 text-white" : "hover:bg-red-700 hover:text-white"}`}
+                                className={`px-10 py-4 border border-gray-400 rounded-full sm:w-80 w-64 text-sm transition-all duration-500 ${watch(question.name) === option ? "bg-red-700" : "hover:bg-red-700 hover"}`}
                                 onClick={option === "No cancel my application" ? () => navigate("/") : () => onBtnClicked(option, question)}
                             >
                                 {option}
@@ -204,13 +204,13 @@ const FormInfo = () => {
                         </button>
                     )}
                     {currQuestion < questions.length - 1 && (
-                        <button type="button" className="sm:px-12  hover:scale-105 transition p-2 rounded  bg-red-600 text-white flex  gap-2" onClick={handleNext}>
+                        <button type="button" className="sm:px-12  hover:scale-105 transition p-2 rounded  bg-red-600 flex  gap-2" onClick={handleNext}>
                             <span className='hidden sm:inline'>Next</span>
                             <MoveRight className='w-6'/>
                         </button>
                     )}
                     {currQuestion === questions.length - 1 && (
-                        <Button1 disabled={isSubmitting || userDetails} type="submit" className="flex gap-3 sm:px-12  hover:scale-105 transition p-2 rounded text-white">
+                        <Button1 disabled={isSubmitting || userDetails} type="submit" className="flex gap-3 sm:px-12  hover:scale-105 transition p-2 rounded">
                              {loading ? <SmallLoader /> : "Submit"}
                         </Button1>
                     )}

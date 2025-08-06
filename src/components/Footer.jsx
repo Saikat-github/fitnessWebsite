@@ -6,7 +6,7 @@ import Button1 from './Button1';
 const Footer = () => {
   const navigate = useNavigate();
   return (
-    <div className='border-t md:px-20 px-5 text-white'>
+    <div className='border-t md:px-20 px-5'>
       <div className="footer-first py-20 flex gap-4 flex-col items-center text-xs">
         <div className='w-72'>
           <img src="/logo6.png" className='object-fill rounded-full' alt="" />

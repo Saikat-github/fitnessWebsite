@@ -25,7 +25,7 @@ const Section = () => {
 
             </div>
             <div className="info my-12 sm:my-20 flex flex-wrap gap-12 md:gap-20 justify-center">
-                <div className='space-y-12 md:space-y-20'>
+                <div className='space-y-14 md:space-y-20'>
                     <Card h1="Workouts" h2="Customized Workout Plans" h2color={"bg-[#0f0671]"} img={dumbbell}>
                         <Dumbbell className='w-6' />
                     </Card>
@@ -33,7 +33,7 @@ const Section = () => {
                         <Utensils className='w-6' />
                     </Card>
                 </div>
-                <div className='space-y-12 md:space-y-20'>
+                <div className='space-y-14 md:space-y-20'>
                     <Card h1="Habits" h2="Daily habit tracking" h2color={"bg-[#0f0671]"} img={clipboard}>
                         <CheckCircle className='w-6' />
                     </Card>
