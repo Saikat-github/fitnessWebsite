@@ -27,7 +27,7 @@ const PricingPage = () => {
     <div className="py-16 px-6">
       <div className="max-w-7xl mx-auto text-center text-white">
         <div>
-          <h2 className="text-4xl font-semibold mb-6 bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 bg-clip-text text-transparent">Our Pricing Plans</h2>
+          <h2 className="text-4xl font-semibold mb-6">Our Pricing Plans</h2>
         </div>
         <p className="text-sm mb-12">
           Choose the plan that suits your fitness goal. We offer flexible pricing for muscle building, weight loss, body recomposition, and guaranteed results.
@@ -35,7 +35,7 @@ const PricingPage = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {pricingPlans.map((plan) => (
-            <div key={plan.title} className="bg-gray-900 shadow-lg rounded-lg overflow-hidden">
+            <div key={plan.title} className="bg-black/50 shadow-lg rounded-lg">
               <div className="px-6 py-8">
                 <h3 className="text-xl font-semibold text-white">{plan.title}</h3>
                 <p className="mt-4 text-3xl font-bold text-blue-600">{plan.price}</p>
@@ -60,8 +60,6 @@ const PricingPage = () => {
                     </li>
                   ))}
                 </ul>
-              </div>
-              <div className="bg-gray-900 bg-opacity-40 px-6 py-4">
               </div>
             </div>
           ))}

@@ -7,6 +7,7 @@ import { login, logout, addDetails, removeDetails } from './store/authSlice'
 import dbService from './appwrite/data'
 import ReactGA from "react-ga4";
 import { ToastContainer } from "react-toastify";
+import { Loader2 } from 'lucide-react'
 
 ReactGA.initialize("G-1QYWZQESQK");
 ReactGA.send("pageview");
@@ -57,7 +58,7 @@ const App = () => {
 
 
   return !authLoading ? (
-    <div className='font-Montserrat bg-slate-950 text-white'>
+    <div className='font-Poppins bg-slate-950 text-gray-200'>
       <ToastContainer position="top-right" autoClose={3000} />
       <Navbar />
       <main className='min-h-[200vh]'>
@@ -66,7 +67,9 @@ const App = () => {
       </main>
       <Footer />
     </div>
-  ) : <MinimalLoader className='w-8 h-8 border-4'/>
+  ) : <div className='font-Montserrat bg-slate-950 text-white w-screen h-screen flex justify-center items-center'>
+    <Loader2 className='w-8 animate-spin'/>
+  </div>
 }
 
 export default App

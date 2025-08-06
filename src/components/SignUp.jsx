@@ -62,13 +62,13 @@ const SignUp = () => {
 
     return (
         <div className="flex justify-center h-screen z-10 animate">
-            <div className={`mx-auto w-full max-w-lg bg-gray-950 rounded-lg px-10 border border-black/10 animate-[fadeIn_0.5s] overflow-y-auto my-4 text-white`}>
+            <div className={`mx-auto w-full max-w-lg bg-black/50 rounded-lg px-10 border border-black/10 animate-[fadeIn_0.5s] overflow-y-auto my-4 text-white`}>
                 <div className='flex justify-end'>
                     <Link to='/' className='flex justify-end'>
                         <img src={cross} className='w-4' alt="" />
                     </Link >
                 </div>
-                <h2 className="text-center text-3xl mb-2 bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 bg-clip-text text-transparent">Sign Up</h2>
+                <h2 className="text-center text-3xl mb-2">Sign Up</h2>
                 <p className="mb-4 text-center text-xs">
                     Already have an account?&nbsp;
                     <Link
@@ -81,7 +81,7 @@ const SignUp = () => {
                 {error && <p className="text-red-600 mt-8 text-center text-xs">{error}</p>}
 
                 <div className="oauth my-6 flex flex-col gap-4 items-center">
-                    <button onClick={googleLogin} className='w-72 py-3 flex gap-2 justify-center items-center shadow-xl border-2 rounded-full hover:scale-105 transition-all duration-300'><img className='w-8' src={GoogleLogo} alt="" />Continue With Google</button>
+                    <button onClick={googleLogin} className='w-72 py-2 flex gap-2 justify-center items-center shadow-xl border rounded-full hover:scale-105 transition-all duration-300'><img className='w-8' src={GoogleLogo} alt="" />Continue With Google</button>
                 </div>
 
                 <div className='my-6 flex gap-4 items-center'>
@@ -117,10 +117,9 @@ const SignUp = () => {
                                 required: true,
                             })}
                         />
-                        <button className='px-6 py-1
-                        bg-gray-950 text-white 
+                        <button className='px-6 py-1 text-white 
                         rounded-full transition-all duration-300 
-                        hover:bg-gray-900  flex gap-2 border-2  text-sm' type="submit" disabled={loading} >
+                        hover:bg-gray-900  flex gap-2 border  text-sm' type="submit" disabled={loading} >
                             {loading
                                 ?
                                 <SmallLoader />

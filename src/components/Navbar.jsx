@@ -55,12 +55,12 @@ const Navbar = () => {
 
 
     return (
-        <div className=' h-20 px-3 sm:px-20 flex justify-between items-center sticky top-0 z-10 py-12 text-gray-200 bg-slate-950'>
+        <div className=' h-20 px-3 sm:px-20 flex justify-between items-center sticky top-0 z-10 py-12 text-gray-200 backdrop-blur-lg'>
             <Link to='/' className='text-4xl w-28 h-28'>
                 <img src="/logo6.png" className='object-fill' alt="" />
             </Link>
             <div className="showBar flex md:gap-6 text-lg z-10">
-                <ul className={`navitems md:flex lg:gap-10 gap-2 ${showBar ? "flex flex-col gap-10 mt-48 py-6 px-2 bg-slate-900 rounded-lg" : "hidden"}`}>
+                <ul className={`navitems md:flex lg:gap-10 gap-2 ${showBar ? "flex flex-col gap-10 mt-48 py-6 px-2 bg-black/80 rounded-lg" : "hidden"}`}>
                     {navOptions.map((item, idx) => (
                         item.active && <li className=' transition px-4 py-2 hover:text-white cursor-pointer text-sm flex items-center gap-2' key={idx} onClick={() => onClickHandler(item.url)}>
                             {item.icon}

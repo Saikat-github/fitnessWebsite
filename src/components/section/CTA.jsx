@@ -16,7 +16,7 @@ const CTA = () => {
         <div className='flex flex-col gap-6 items-center py-20'>
             {/* <h1 className='text-[#0f0671]  text-2xl text-center'>SAIKATSAHA FITNESS</h1> */}
             {/* <img src="../logo5.png" className='w-28' alt="" /> */}
-            <h2 className='text-4xl font-medium lg:w-1/2 text-center bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 bg-clip-text text-transparent'>Personalized Training</h2>
+            <h2 className='text-4xl font-medium lg:w-1/2 text-center'>Personalized Training</h2>
             <h3 className='  text-lg md:text-2xl'>If you want to</h3>
             <div className="info my-10 flex flex-wrap gap-12 justify-center">
                 <div className='space-y-12'>

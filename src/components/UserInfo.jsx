@@ -49,11 +49,11 @@ const UserInfo = ({ userId }) => {
 
   return userDetails ? (
     <div className="flex flex-col gap-6 pt-2 items-center min-h-screen text-slate-50">
-      <div className="bg-gray-950 shadow-lg rounded-lg px-8 py-2 w-full max-w-md">
+      <div className="bg-black/50 shadow-lg rounded-lg px-8 py-2 w-full max-w-md">
         Thank You for choosing us, we'll contact you in 24 hours
       </div>
-      <div className="bg-gray-950 shadow-lg rounded-lg p-8 w-full max-w-md">
-        <h1 className="text-2xl font-bold mb-6 text-center bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 bg-clip-text text-transparent">Your Details</h1>
+      <div className="bg-black/50 shadow-lg rounded-lg p-8 w-full max-w-md">
+        <h1 className="text-2xl font-bold mb-6 text-center">Your Details</h1>
         <div className="space-y-4">
           <p><strong className="">Name:</strong> {userDetails.applicantName}</p>
           <p><strong className="">Email:</strong> {userDetails.email}</p>

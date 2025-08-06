@@ -6,7 +6,7 @@ import formimage3 from '../../assets/myimage3.webp'
 const DetailsPane = () => {
     return (
         <div className='py-20 '>
-            <h2 className='text-4xl font-medium mb-8 text-center bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 bg-clip-text text-transparent'>This is My Story</h2>
+            <h2 className='text-4xl font-medium mb-8 text-center'>This is My Story</h2>
             <div className='flex gap-8 md:px-20 px-5 md:flex-row flex-col'>
                 <img src={formimage3} className='max-w-md object-contain rounded-lg' alt="" />
                 <img src={formimage1} className='max-w-md object-contain rounded-lg' alt="" />

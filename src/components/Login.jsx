@@ -82,14 +82,14 @@ const Login = () => {
     <div
       className='flex justify-center h-screen z-10'
     >
-      <div className={`mx-auto w-full max-w-lg bg-gray-950 rounded-lg px-10 border border-black/10 animate-[fadeIn_1s] overflow-y-auto my-4`}>
+      <div className={`mx-auto w-full max-w-lg bg-black/50 rounded-lg px-10 border border-black/10 animate-[fadeIn_1s] overflow-y-auto my-4`}>
         <div className='flex justify-end'>
           <Link to='/' className='flex justify-end'>
             <img src={cross} className='w-4 mt-1' alt="" />
           </Link >
         </div>
 
-        <h2 className="text-center text-3xl mb-2 bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 bg-clip-text text-transparent">Log In</h2>
+        <h2 className="text-center text-3xl font-semibold mb-2">Log In</h2>
         <p className="mb-4 text-center text-xs">
           Don&apos;t have any account?&nbsp;
           <Link
@@ -102,7 +102,7 @@ const Login = () => {
         {error && <p className="text-red-600 text-center">{error}</p>}
 
         <div className="oauth my-6 flex flex-col gap-4 items-center">
-          <button onClick={googleLogin} className='w-72 py-3 flex gap-2 justify-center items-center shadow-xl border-2 rounded-full hover:scale-105 transition-all duration-300'><img className='w-8' src={GoogleLogo} alt="" />Continue With Google</button>
+          <button onClick={googleLogin} className='w-72 py-2 flex gap-2 justify-center items-center shadow-xl border rounded-full hover:scale-105 transition-all duration-300'><img className='w-8' src={GoogleLogo} alt="" />Continue With Google</button>
         </div>
 
         <div className='my-6 flex gap-4 items-center'>
@@ -134,9 +134,9 @@ const Login = () => {
             />
             <div className="flex justify-between">
               <button
-                className='px-6 py-1 bg-gray-950 text-white 
+                className='px-6 py-1 text-white 
           rounded-full transition-all duration-300 
-          hover:bg-gray-900  flex gap-2 border-2 text-sm'
+          hover:bg-gray-900  flex gap-2 border text-sm'
                 type="submit"
                 disabled={isSubmitting}
               >{loading ? <SmallLoader /> : "Login"}</button>

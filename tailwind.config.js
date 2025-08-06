@@ -8,7 +8,8 @@ export default {
     extend: {
       fontFamily: {
         'Montserrat': ["Montserrat", 'sans-serif'],
-        "Cormorant" : ["Cormorant Garamond", 'serif']
+        'Nunito': ["Nunito", 'sans-serif'],
+        'Poppins': ["Poppins", 'sans-serif'],
       }
     },
   },

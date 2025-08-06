@@ -20,7 +20,7 @@ const Section = () => {
         <div className='flex flex-col gap-6 items-center my-10'>
             <div className='mb-10 flex flex-col items-center'>
                 <img src={logo} className='w-72' alt="" />
-                <h2 className='text-4xl font-medium mb-8 text-center bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 bg-clip-text text-transparent'>Exclusive Membership</h2>
+                <h2 className='text-4xl font-medium mb-8 text-center'>Exclusive Membership</h2>
                 <img src={formimage2} alt="" />
 
             </div>
