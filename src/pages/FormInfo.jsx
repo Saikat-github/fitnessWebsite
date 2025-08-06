@@ -5,8 +5,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import dbService from '../appwrite/data';
 import { addDetails } from '../store/authSlice';
 import { toast } from 'react-toastify';
-import { MoveRight, MoveLeft } from 'lucide-react';
-import { Button1, SmallLoader } from '../components/index.js';
+import { MoveRight, MoveLeft, Loader2 } from 'lucide-react';
+import { Button1 } from '../components/index.js';
 
 const handleRedirect = () => {
     window.open('/pricing', '_blank');
@@ -95,7 +95,6 @@ const FormInfo = () => {
 
     //form submission logic
     const onSubmit = async (data) => {
-        console.log(data);
         setError(null);
         setLoading(true);
         try {
@@ -211,7 +210,7 @@ const FormInfo = () => {
                     )}
                     {currQuestion === questions.length - 1 && (
                         <Button1 disabled={isSubmitting || userDetails} type="submit" className="flex gap-3 sm:px-12  hover:scale-105 transition p-2 rounded">
-                             {loading ? <SmallLoader /> : "Submit"}
+                             {loading ? <Loader2 className='animate-spin' /> : "Submit"}
                         </Button1>
                     )}
                 </div>

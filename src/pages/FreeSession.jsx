@@ -33,7 +33,7 @@ const FreeSession = () => {
       {isSubmitSuccessful ? (
         <div className='bg-black/50 p-8 max-h-40 rounded-lg shadow-lg w-full max-w-md mb-10 mt-20 text-center'>
           {result} <br />
-          <span className='text-indigo-500 font-semibold cursor-pointer' onClick={() => navigate("/")}> Back To Home Page</span>
+          <span className='cursor-pointer px-4 py-1 border border-gray-400 rounded-full' onClick={() => navigate("/")}> Back To Home Page</span>
         </div>
       ) : (
         <form onSubmit={handleSubmit(onSubmit)} className="text-sm bg-black/50 p-8 rounded shadow-lg w-full max-w-md mb-10 my-4">
@@ -50,7 +50,7 @@ const FreeSession = () => {
               id="name"
               type="text"
               {...register("name", { required: "Name is required" })}
-              className={`bg-gray-900 w-full px-4 py-2 rounded-lg focus:outline-none focus:ring-2 ${errors.name ? "border-red-500 focus:ring-red-300" : " focus:ring-blue-700"}`}
+              className={`bg-gray-900 outline-none w-full px-4 py-2 rounded-lg`}
               placeholder="Enter your name"
             />
             {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>}
@@ -71,7 +71,7 @@ const FreeSession = () => {
                   message: "Phone number must be 10 digits and start with 6-9",
                 },
               })}
-              className={`bg-gray-900 w-full px-4 py-2 rounded-lg focus:outline-none focus:ring-2 ${errors.phoneNo ? "border-red-500 focus:ring-red-300" : " focus:ring-blue-700"}`}
+              className={`bg-gray-900 outline-none w-full px-4 py-2 rounded-lg`}
               placeholder="Enter your phone number"
             />
             {errors.phoneNo && <p className="text-red-500 text-sm mt-1">{errors.phoneNo.message}</p>}
@@ -85,7 +85,7 @@ const FreeSession = () => {
             <DatePicker
               selected={watch("preferredTime")}
               onChange={(date) => setValue("preferredTime", date)}
-              className="bg-gray-900 w-full px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-700"
+              className="bg-gray-900 outline-none w-full px-4 py-2 rounded-lg"
               minDate={new Date()}
               placeholderText="Select a date"
             />

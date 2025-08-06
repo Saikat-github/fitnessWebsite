@@ -3,7 +3,7 @@ import myImage1 from '../../assets/myimage1.webp'
 import myImage2 from '../../assets/myimage2.webp'
 import myImage3 from '../../assets/myimage3.webp'
 import myImage4 from '../../assets/myimage4.webp'
-import { ArrowDown, ArrowRight } from 'lucide-react'
+import { ArrowDown, ArrowRight, Instagram } from 'lucide-react'
 
 
 const DetailsPane = () => {
@@ -13,16 +13,29 @@ const DetailsPane = () => {
             <div className='flex gap-12 md:gap-20 md:px-20 px-5 flex-col justify-center items-center'>
                 <div className='flex flex-col md:flex-row justify-center items-center gap-2 md:gap-10'>
                     <img src={myImage3} className='max-w-md object-contain rounded-lg max-sm:w-60 h-80' alt="" />
-                    <ArrowDown className='md:hidden'/>
-                    <ArrowRight className='max-md:hidden'/>
+                    <ArrowDown className='md:hidden' />
+                    <ArrowRight className='max-md:hidden' />
                     <img src={myImage4} className='max-w-md object-contain rounded-lg max-sm:w-60 h-80' alt="" />
                 </div>
                 <div className='flex flex-col md:flex-row justify-center items-center gap-2 md:gap-10'>
                     <img src={myImage1} className='max-w-md object-contain rounded-lg max-sm:w-60 h-[500px]' alt="" />
-                    <ArrowDown className='md:hidden'/>
-                    <ArrowRight className='max-md:hidden'/>
+                    <ArrowDown className='md:hidden' />
+                    <ArrowRight className='max-md:hidden' />
                     <img src={myImage2} className='max-w-md object-contain rounded-lg max-sm:w-60 h-[500px]' alt="" />
                 </div>
+
+                {/* Visit Instagram button */}
+                <a
+                    href="https://www.instagram.com/saikaatsaha/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className='bg-black/50 flex items-center gap-2 rounded-full border border-dashed border-gray-400 px-3 py-1.5 text-sm hover:bg-transparent transition-all duration-300'
+                >
+                    <Instagram className="w-6 h-6 hover:scale-105 transition duration-200 text-pink-600" />
+                    Visit My Instagram
+                    <ArrowRight className='text-gray-400'/>
+                </a>
+
                 <div className="details space-y-4">
                     <h2 className='text-xl font-semibold'>I'M SAIKAT SAHA</h2>
                     <p className='text-xs '>

@@ -8,8 +8,8 @@ import { login as storeLogin } from '../store/authSlice';
 import authService from '../appwrite/auth'
 import { useMemo } from 'react'
 import cross from '../assets/cross.svg';
-import { SmallLoader } from './util components/MinimalLoader';
 import { toast } from 'react-toastify';
+import { Loader2 } from 'lucide-react';
 
 
 
@@ -139,7 +139,7 @@ const Login = () => {
           hover:bg-gray-900  flex gap-2 border text-sm'
                 type="submit"
                 disabled={isSubmitting}
-              >{loading ? <SmallLoader /> : "Login"}</button>
+              >{loading ? <Loader2 className='animate-spin'/> : "Login"}</button>
               <span disabled={loading} className='text-xs hover:underline py-2 cursor-pointer ml-2 sm:ml-0' onClick={() => forgetPassword()}>
                 Forget Password?
               </span>

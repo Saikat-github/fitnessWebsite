@@ -4,7 +4,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { removeDetails } from "../store/authSlice";
 import ConfirmationModal from "./util components/ConfirmationModal";
-import { MinimalLoader } from "./util components/MinimalLoader";
 import { toast } from "react-toastify";
 
 

@@ -1,5 +1,4 @@
-import React from "react";
-import { SmallLoader } from "./MinimalLoader";
+import { Loader2 } from "lucide-react";
 
 const ConfirmationModal = ({ isOpen, message, onConfirm, onCancel, loader}) => {
   if (!isOpen) return null;
@@ -22,7 +21,7 @@ const ConfirmationModal = ({ isOpen, message, onConfirm, onCancel, loader}) => {
             {
               loader
               ?
-              <SmallLoader />
+              <Loader2 className="animate-spin"/>
               :
               "Yes"
             }

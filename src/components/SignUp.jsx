@@ -7,8 +7,8 @@ import { login as storeLogin } from '../store/authSlice'
 import { useDispatch } from 'react-redux';
 import cross from '../assets/cross.svg';
 import { toast } from 'react-toastify';
-import { SmallLoader } from './util components/MinimalLoader';
 import GoogleLogo from '../assets/google2.svg';
+import { Loader2 } from 'lucide-react';
 
 
 const SignUp = () => {
@@ -122,7 +122,7 @@ const SignUp = () => {
                         hover:bg-gray-900  flex gap-2 border  text-sm' type="submit" disabled={loading} >
                             {loading
                                 ?
-                                <SmallLoader />
+                                <Loader2 className='animate-spin'/>
                                 : "Creat Account"
                             }
                         </button>

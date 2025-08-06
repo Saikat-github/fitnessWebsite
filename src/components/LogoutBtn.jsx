@@ -4,8 +4,7 @@ import { useState } from 'react';
 import { logout as storeLogout } from '../store/authSlice';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { SmallLoader } from './util components/MinimalLoader';
-import { LogOut } from "lucide-react";
+import { Loader2, LogOut } from "lucide-react";
 import { toast } from 'react-toastify';
 
 
@@ -34,7 +33,7 @@ const LogoutBtn = ({setShowBar}) => {
   return (
     <button onClick={() => logout()} className='transition px-4 py-2 hover:text-white cursor-pointer text-sm  flex items-center gap-2'>
       <LogOut />
-      {loading ? <SmallLoader /> :"Logout"}
+      {loading ? <Loader2 className='animate-spin'/> :"Logout"}
       </button>
   )
 }

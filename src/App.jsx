@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Outlet, useNavigate } from 'react-router-dom'
-import { Footer, MinimalLoader, Navbar, ScrollToTop } from './components'
+import { Footer, Navbar, ScrollToTop } from './components'
 import { useDispatch, useSelector } from 'react-redux'
 import authService from './appwrite/auth'
 import { login, logout, addDetails, removeDetails } from './store/authSlice'

@@ -29,7 +29,7 @@ const Footer = () => {
           <p>
             <a
               href="https://fitness-website-admin.vercel.app/login"
-              className='text-xs sm:text-sm text-red-600'
+              className='text-xs sm:text-sm text-blue-600'
               target="_blank"
               rel="noopener noreferrer"
             >
