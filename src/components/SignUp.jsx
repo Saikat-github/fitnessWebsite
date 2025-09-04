@@ -61,8 +61,8 @@ const SignUp = () => {
     }, [dispatch])
 
     return (
-        <div className="flex justify-center h-screen z-10 animate">
-            <div className={`mx-auto w-full max-w-lg bg-black/50 rounded-lg px-10 my-4`}>
+        <div className="flex justify-center h-screen z-10 animate max-sm:text-sm">
+            <div className={`mx-auto w-full max-w-md bg-slate-600/20 rounded-lg px-10 my-4`}>
                 <div className='flex justify-end'>
                     <Link to='/' className='flex justify-end'>
                         <img src={cross} className='w-4' alt="" />
@@ -81,7 +81,9 @@ const SignUp = () => {
                 {error && <p className="text-red-600 mt-8 text-center text-xs">{error}</p>}
 
                 <div className="oauth my-6 flex flex-col gap-4 items-center">
-                    <button onClick={googleLogin} className='w-72 py-2 flex gap-2 justify-center items-center shadow-xl border rounded-full hover:scale-105 transition-all duration-300'><img className='w-8' src={GoogleLogo} alt="" />Continue With Google</button>
+                    <button onClick={googleLogin} className='w-60 sm:w-72 py-2 flex gap-2 justify-center items-center shadow-2xl rounded-full hover:gap-4 transition-all duration-300 bg-slate-400/10'>
+                        <img className='w-8' src={GoogleLogo} alt="" />Continue With Google
+                    </button>
                 </div>
 
                 <div className='my-6 flex gap-4 items-center'>
@@ -91,7 +93,7 @@ const SignUp = () => {
                 </div>
 
                 <form onSubmit={handleSubmit(create)}>
-                    <div className='space-y-8 mt-8'>
+                    <div className='space-y-6 mt-8'>
                         <Input
 
                             placeholder="Enter your full name"
@@ -117,12 +119,11 @@ const SignUp = () => {
                                 required: true,
                             })}
                         />
-                        <button className='px-6 py-1 text-white 
-                        rounded-full transition-all duration-300 
-                        hover:bg-gray-900  flex gap-2 border  text-sm' type="submit" disabled={loading} >
+                        <button className='px-6 py-1 
+                rounded transition-all duration-300  flex gap-2 text-sm bg-slate-200 text-black' type="submit" disabled={loading} >
                             {loading
                                 ?
-                                <Loader2 className='animate-spin'/>
+                                <Loader2 className='animate-spin w-4' />
                                 : "Creat Account"
                             }
                         </button>

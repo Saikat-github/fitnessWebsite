@@ -80,9 +80,9 @@ const Login = () => {
 
   return (
     <div
-      className='flex justify-center h-screen z-10'
+      className='flex justify-center h-screen z-10 max-sm:text-sm'
     >
-      <div className={`mx-auto w-full max-w-lg bg-black/50 rounded-lg px-10 my-4`}>
+      <div className={`mx-auto w-full max-w-md bg-slate-600/20 rounded-lg px-10 my-4`}>
         <div className='flex justify-end'>
           <Link to='/' className='flex justify-end'>
             <img src={cross} className='w-4 mt-1' alt="" />
@@ -99,10 +99,13 @@ const Login = () => {
             Sign Up
           </Link>
         </p>
-        {error && <p className="text-red-600 text-center">{error}</p>}
+        {error && <p className="text-red-600 text-center text-xs">{error}</p>}
 
         <div className="oauth my-6 flex flex-col gap-4 items-center">
-          <button onClick={googleLogin} className='w-72 py-2 flex gap-2 justify-center items-center shadow-xl border rounded-full hover:scale-105 transition-all duration-300'><img className='w-8' src={GoogleLogo} alt="" />Continue With Google</button>
+          <button onClick={googleLogin} className='w-60 sm:w-72 py-2 flex gap-2 justify-center items-center shadow-xl rounded-full hover:gap-4 transition-all duration-300 bg-slate-400/10'>
+            <img className='w-8' src={GoogleLogo} alt="" />
+            Continue With Google
+          </button>
         </div>
 
         <div className='my-6 flex gap-4 items-center'>
@@ -112,7 +115,7 @@ const Login = () => {
         </div>
 
         <form onSubmit={handleSubmit(login)} className='mt-8'>
-          <div className='space-y-8'>
+          <div className='space-y-6'>
             <Input
               placeholder="Enter your email"
               type="email"
@@ -135,11 +138,12 @@ const Login = () => {
             <div className="flex justify-between">
               <button
                 className='px-6 py-1 
-          rounded-full transition-all duration-300 
-          hover:bg-gray-900  flex gap-2 border text-sm'
+                rounded transition-all duration-300  flex gap-2 text-sm bg-slate-200 text-black'
                 type="submit"
                 disabled={isSubmitting}
-              >{loading ? <Loader2 className='animate-spin'/> : "Login"}</button>
+              >
+                {loading ? <Loader2 className='animate-spin w-4' /> : "Login"}
+              </button>
               <span disabled={loading} className='text-xs hover:underline py-2 cursor-pointer ml-2 sm:ml-0' onClick={() => forgetPassword()}>
                 Forget Password?
               </span>

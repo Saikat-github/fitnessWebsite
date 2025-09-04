@@ -31,18 +31,19 @@ const FreeSession = () => {
   return (
     <div className="flex justify-center min-h-screen">
       {isSubmitSuccessful ? (
-        <div className='bg-black/50 p-8 max-h-40 rounded-lg shadow-lg w-full max-w-md mb-10 mt-20 text-center'>
+        <div className='bg-slate-600/20 p-8 max-h-40 rounded-lg max-w-md my-20 text-center text-sm flex flex-col justify-center gap-2 items-center'>
           {result} <br />
-          <span className='cursor-pointer px-4 py-1 border border-gray-400 rounded-full' onClick={() => navigate("/")}> Back To Home Page</span>
+          <span className='cursor-pointer px-4 py-1 rounded bg-slate-200 text-black' onClick={() => navigate("/")}> Back To Home Page
+          </span>
         </div>
       ) : (
-        <form onSubmit={handleSubmit(onSubmit)} className="text-sm bg-black/50 p-8 rounded shadow-lg w-full max-w-md mb-10 my-4">
+        <form onSubmit={handleSubmit(onSubmit)} className="text-sm bg-slate-600/20 p-8 rounded max-w-md mb-10 my-4 space-y-6">
           <h2 className="text-2xl font-semibold text-center mb-8">
             Book a Free Session
           </h2>
 
           {/* Name Field */}
-          <div className="my-8 space-y-2 text-gray-100">
+          <div className="space-y-2 text-gray-100">
             <label htmlFor="name" className="block font-medium mb-1">
               Name<span className='text-red-600'>*</span>
             </label>
@@ -50,14 +51,14 @@ const FreeSession = () => {
               id="name"
               type="text"
               {...register("name", { required: "Name is required" })}
-              className={`bg-gray-900 outline-none w-full px-4 py-2 rounded-lg`}
+              className={`bg-slate-400/10 outline-none w-full px-4 py-2 rounded`}
               placeholder="Enter your name"
             />
             {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>}
           </div>
 
           {/* Phone Number Field */}
-          <div className="my-8 space-y-2">
+          <div className="space-y-2">
             <label htmlFor="phone" className="block font-medium mb-1">
               WhatsApp Number<span className='text-red-600'>*</span>
             </label>
@@ -71,21 +72,21 @@ const FreeSession = () => {
                   message: "Phone number must be 10 digits and start with 6-9",
                 },
               })}
-              className={`bg-gray-900 outline-none w-full px-4 py-2 rounded-lg`}
+              className={`bg-slate-400/10 outline-none w-full px-4 py-2 rounded`}
               placeholder="Enter your phone number"
             />
             {errors.phoneNo && <p className="text-red-500 text-sm mt-1">{errors.phoneNo.message}</p>}
           </div>
 
           {/* Date Picker Field */}
-          <div className="my-8 space-y-2">
+          <div className="space-y-2">
             <label htmlFor="preferredTime" className="block font-medium mb-1">
               Please choose a date, you could do the session
             </label>
             <DatePicker
               selected={watch("preferredTime")}
               onChange={(date) => setValue("preferredTime", date)}
-              className="bg-gray-900 outline-none w-full px-4 py-2 rounded-lg"
+              className="bg-slate-400/10 outline-none w-full px-4 py-2 rounded"
               minDate={new Date()}
               placeholderText="Select a date"
             />
@@ -95,7 +96,7 @@ const FreeSession = () => {
           <button
             disabled={loader}
             type="submit"
-            className="flex gap-2 justify-center text-white py-2 px-4 rounded-full transition-all duration-500 w-48 mx-auto border"
+            className="flex gap-2 justify-center py-1 px-4 rounded transition-all duration-500 bg-slate-200 text-black"
           >
             {loader ? <Loader className='w-6 animate-spin'/> : "Submit"}
           </button>

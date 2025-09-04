@@ -29,7 +29,7 @@ const DetailsPane = () => {
                     href="https://www.instagram.com/saikaatsaha/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className='bg-black/50 flex items-center gap-2 rounded-full border border-dashed border-gray-400 px-3 py-1.5 text-sm hover:bg-transparent transition-all duration-300'
+                    className='flex items-center gap-2 rounded px-3 py-1.5 text-sm hover:bg-transparent transition-all duration-300 bg-slate-400/20'
                 >
                     <Instagram className="w-6 h-6 hover:scale-105 transition duration-200 text-pink-600" />
                     Visit My Instagram

@@ -2,7 +2,7 @@ import React from 'react'
 
 const Button1 = ({children, type="submit", className="", ...props}) => {
     return (
-        <button type={type} className={`${className} px-4 py-2 rounded-full  hover:scale-110 transition-all duration-300 border border-gray-300 text-sm bg-black/50`} {...props}>
+        <button type={type} className={`${className} px-4 py-2 rounded hover:opacity-70 transition-all duration-300 text-sm bg-slate-200 text-black`} {...props}>
             {children}
         </button>
     )

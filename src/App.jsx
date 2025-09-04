@@ -58,7 +58,7 @@ const App = () => {
 
 
   return !authLoading ? (
-    <div className='font-Poppins bg-slate-950 text-gray-300'>
+    <div className='font-Poppins bg-black text-gray-200'>
       <ToastContainer position="top-right" autoClose={3000} />
       <Navbar />
       <main className='min-h-[200vh]'>
@@ -67,7 +67,7 @@ const App = () => {
       </main>
       <Footer />
     </div>
-  ) : <div className='font-Montserrat bg-slate-950 text-white w-screen h-screen flex justify-center items-center'>
+  ) : <div className='font-Montserrat bg-black text-white w-screen h-screen flex justify-center items-center'>
     <Loader2 className='w-8 animate-spin'/>
   </div>
 }

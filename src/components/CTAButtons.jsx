@@ -9,16 +9,16 @@ import { useNavigate } from 'react-router-dom';
 const CTAButtons = () => {
   const navigate = useNavigate()
   return (
-    <div className='flex gap-6 flex-col sm:flex-row'>
-    <Button1 onClick={() => navigate("/input")} className='flex gap-2 items-center'>
-      Join Now
-      <LogIn size={24} />  
+    <div className='flex gap-6 flex-col sm:flex-row items-center'>
+      <Button1 onClick={() => navigate("/input")} className='flex gap-2 items-center'>
+        Join Now
+        <LogIn size={24} />
       </Button1>
-    <Button2 onClick={() => navigate("/input-freesession")} className='flex gap-2'>
-      Book a Free Session
-      <CalendarCheck size={24} />
-    </Button2>
-  </div>
+      <Button2 onClick={() => navigate("/input-freesession")} className='flex gap-2'>
+        Book a Free Session
+        <CalendarCheck size={24} />
+      </Button2>
+    </div>
   )
 }
 

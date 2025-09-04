@@ -10,19 +10,18 @@ const Hero = () => {
 
 
   return (
-    <div className='flex flex-col md:flex-row'>
-        <img src={banner2} className='w-full md:w-1/2 opacity-80' alt="" />
+    <div className="bg-cover bg-center bg-no-repeat relative sm:h-screen"
+      style={{ backgroundImage: `url(${banner2})` }}>
 
-      <div className="hero-right px-10 md:my-auto my-16 space-y-12 ">
-        <div className=' text-4xl font-medium xs:text-6xl'>
-          <hr className='border-0 w-20 h-2 bg-gray-200 mb-6' />
+      <div className="absolute inset-0 bg-black/70 z-0" />
+      <div className="relative z-10hero-right px-10 flex flex-col gap-12 justify-center h-full max-sm:py-10">
+        <span className='text-5xl sm:text-6xl font-bold'>
           Learn the Luxury of Being Fit
-        </div>
+        </span>
 
-        <div className='text-2xl xs:text-3xl flex gap-6 max-sm:mb-6'>
-          <hr className='border-0 w-1 h-10 bg-gray-200 ' />
+        <span className='text-2xl xs:text-3xl flex gap-6 max-sm:mb-6 font-semibold'>
           By Saikat Saha
-        </div>
+        </span>
 
         <CTAButtons />
       </div>
