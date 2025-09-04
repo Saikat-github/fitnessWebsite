@@ -14,7 +14,7 @@ const Hero = () => {
       style={{ backgroundImage: `url(${banner2})` }}>
 
       <div className="absolute inset-0 bg-black/70 z-0" />
-      <div className="relative z-10hero-right px-10 flex flex-col gap-12 justify-center h-full max-sm:py-10">
+      <div className="relative z-10hero-right px-10 flex flex-col gap-12 justify-center h-full max-sm:py-10 max-sm:items-center">
         <span className='text-5xl sm:text-6xl font-bold'>
           Learn the Luxury of Being Fit
         </span>
