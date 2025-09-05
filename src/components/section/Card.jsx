@@ -6,7 +6,7 @@ import React from 'react'
 
 const Card = ({h1, h2, className='', children}) => {
   return (
-    <div className={` bg-black/50 h-40 w-72 text-center rounded ${className} bg-slate-600/10 shadow-xl shadow-slate-400/20`}>
+    <div className={` h-40 w-72 text-center rounded ${className} bg-slate-400/20 transition-all duration-300`}>
         <h1 className={`text-lg py-2 px-2 rounded-t flex gap-4 justify-center items-center bg-gray-200 text-black font-semibold`}>
             {h1} 
             {children}

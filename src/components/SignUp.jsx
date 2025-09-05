@@ -62,7 +62,7 @@ const SignUp = () => {
 
     return (
         <div className="flex justify-center h-screen z-10 animate max-sm:text-sm">
-            <div className={`mx-auto w-full max-w-md bg-slate-600/20 rounded-lg px-10 my-4`}>
+            <div className={`mx-auto w-full max-w-md bg-slate-400/20 rounded-lg px-10 my-4`}>
                 <div className='flex justify-end'>
                     <Link to='/' className='flex justify-end'>
                         <img src={cross} className='w-4' alt="" />
@@ -120,7 +120,8 @@ const SignUp = () => {
                             })}
                         />
                         <button className='px-6 py-1 
-                rounded transition-all duration-300  flex gap-2 text-sm bg-slate-200 text-black' type="submit" disabled={loading} >
+                          rounded-full transition-all duration-300  flex gap-2 text-sm border border-white/30 bg-white/5 hover:bg-white/15' type="submit" 
+                          disabled={loading} >
                             {loading
                                 ?
                                 <Loader2 className='animate-spin w-4' />

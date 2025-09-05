@@ -31,13 +31,13 @@ const FreeSession = () => {
   return (
     <div className="flex justify-center min-h-screen">
       {isSubmitSuccessful ? (
-        <div className='bg-slate-600/20 p-8 max-h-40 rounded-lg max-w-md my-20 text-center text-sm flex flex-col justify-center gap-2 items-center'>
+        <div className='bg-slate-400/20 p-8 max-h-40 rounded-lg max-w-md my-20 text-center text-sm flex flex-col justify-center gap-2 items-center'>
           {result} <br />
           <span className='cursor-pointer px-4 py-1 rounded bg-slate-200 text-black' onClick={() => navigate("/")}> Back To Home Page
           </span>
         </div>
       ) : (
-        <form onSubmit={handleSubmit(onSubmit)} className="text-sm bg-slate-600/20 p-8 rounded max-w-md mb-10 my-4 space-y-6">
+        <form onSubmit={handleSubmit(onSubmit)} className="text-sm bg-slate-400/20 p-8 rounded max-w-md mb-10 my-4 space-y-6">
           <h2 className="text-2xl font-semibold text-center mb-8">
             Book a Free Session
           </h2>
@@ -96,7 +96,7 @@ const FreeSession = () => {
           <button
             disabled={loader}
             type="submit"
-            className="flex gap-2 justify-center py-1 px-4 rounded transition-all duration-500 bg-slate-200 text-black"
+            className="flex gap-2 justify-center py-1 px-4 rounded-full transition-all duration-500 border border-white/30 hover:bg-white/10"
           >
             {loader ? <Loader className='w-6 animate-spin'/> : "Submit"}
           </button>

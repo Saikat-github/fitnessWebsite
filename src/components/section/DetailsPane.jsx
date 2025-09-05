@@ -29,14 +29,14 @@ const DetailsPane = () => {
                     href="https://www.instagram.com/saikaatsaha/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className='flex items-center gap-2 rounded px-3 py-1.5 text-sm hover:bg-transparent transition-all duration-300 bg-slate-400/20'
+                    className='flex items-center gap-2 rounded-full px-4 py-1.5 text-sm transition-all duration-300 border border-white/30 bg-white/10 hover:bg-white/15'
                 >
                     <Instagram className="w-6 h-6 hover:scale-105 transition duration-200 text-pink-600" />
                     Visit My Instagram
                     <ArrowRight className='text-gray-400'/>
                 </a>
 
-                <div className="details space-y-4">
+                <div className="details space-y-4 bg-slate-400/20 p-4 rounded">
                     <h2 className='text-xl font-semibold'>I'M SAIKAT SAHA</h2>
                     <p className='text-xs '>
                         <span className='font-bold'>I wasn’t born with a great physique</span>, and from a young age, I wasn’t happy with how I looked. Growing up skinny, it always bothered me, and in my teenage years, I decided to do something about it. I wanted to build a body that I could feel confident about and be proud of. Over the past 3 years, I’ve dedicated myself to learning everything I could about fitness and health, and along the way, I fell in love with the process.

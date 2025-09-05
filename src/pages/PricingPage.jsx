@@ -35,7 +35,7 @@ const PricingPage = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {pricingPlans.map((plan) => (
-            <div key={plan.title} className="bg-slate-600/20 shadow-lg rounded-lg">
+            <div key={plan.title} className="bg-slate-400/20 shadow-lg rounded-lg">
               <div className="px-6 py-8">
                 <h3 className="text-xl font-semibold">{plan.title}</h3>
                 <p className="mt-4 text-3xl font-bold text-blue-600">{plan.price}</p>
